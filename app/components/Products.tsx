@@ -1,8 +1,12 @@
+'use client'
+
 import Image from "next/image";
 import Link from "next/link";
+import useTextAnimator from "../lib/TextAnimator";
 
 export default function () 
 {
+
     return (
         <div className="flex flex-col gap-10">
         <div className="flex justify-between w-full">
@@ -24,12 +28,14 @@ export default function ()
 }
 
 function Product(props: {title: string, desc: string, price: string}) {
+    var title = useTextAnimator(props.title);
+    
     return (
         <div className="w-full flex items-center justify-between">
             <div className="flex gap-3">
                 <div className="w-10 h-10 rounded-full bg-argent"/>
                 <div className="flex flex-col">
-                    <h1 className="font-semibold">{props.title}</h1>
+                    <h1 className="font-semibold">{title}</h1>
                     <p className="text-argent text-sm">{props.desc}</p>
                 </div>
             </div>

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react"
+import useTextAnimator from "../lib/TextAnimator";
 
 const skills = ["web apps", "games", "software"]
 
@@ -9,6 +10,7 @@ export default function ()
 {
     const [currentIndex, setCurrentIndex] = useState<number>(0);
     const [transitionOut, setTransitionOut] = useState(false);
+    const name = useTextAnimator("Imam Syahid Hudzaifah")
 
     useEffect(() => {
         const delay = window.setTimeout(() => {
@@ -25,6 +27,14 @@ export default function ()
 
     return(
         <div className="flex flex-col gap-4">
+            <div className='flex gap-3'>
+                <div className='w-12 aspect-square rounded-full bg-white'/>
+                <div className='flex flex-col'>
+                <h1 className='font-semibold text-white'>{name}</h1>
+                <h2 className='font-semibold text-zinc-500'>B. 1999</h2>
+                </div>
+            </div>
+
             <h1 className="text-2xl font-semibold text-argent">I develop 
                 {skills.map((skill, i) => skill === skills[currentIndex] && <span className={`font-normal text-white ${transitionOut ? "animate-text-out" : "animate-text-in"} ml-2 fixed`}> {skill}.</span>)}
             </h1>
