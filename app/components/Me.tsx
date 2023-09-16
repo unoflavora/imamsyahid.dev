@@ -36,7 +36,7 @@ export default function ()
             </div>
 
             <h1 className="text-2xl font-semibold text-argent">I develop 
-                {skills.map((skill, i) => skill === skills[currentIndex] && <span className={`font-normal text-white ${transitionOut ? "animate-text-out" : "animate-text-in"} ml-2 absolute`}> {skill}.</span>)}
+                {skills.map((skill, i) => skill === skills[currentIndex] && <span key={"skill " + i} className={`font-normal text-white ${transitionOut ? "animate-text-out" : "animate-text-in"} ml-2 absolute`}> {skill}.</span>)}
             </h1>
             <h2 className="text-base text-argent leading-snug">
                 I'm Imam Syahid, a passionate full-stack engineer living in Bandung, Indonesia. My work spans across multiple diciplines from games, web apps, and general software alike.
