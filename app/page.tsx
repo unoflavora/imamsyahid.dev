@@ -1,6 +1,7 @@
 import Lists from "./components/Lists";
 import Me from "./components/Me";
 import Products from "./components/Products";
+import Stacks from "./components/Stacks";
 
 export default function Home() {
   const socials = [
@@ -17,10 +18,25 @@ export default function Home() {
   ]
 
   const writings =  [
-      {title: "AI on politics", category: "Web Games", subtitle: "2022"},
-      {title: "On code inspiration", category: "Web Games", subtitle: "2023"},
-      {title: "Why React is not enough", category: "Web App", subtitle: "2023"},
-      {title: "Kanban Management", category: "Web App", subtitle: "2023"}
+      {title: "AI on politics", subtitle: "16/09/2023"},
+      {title: "On code inspiration", subtitle: "16/10/2023"},
+      {title: "Why React is not enough", subtitle: "8/10/2023"},
+      {title: "Kanban Management", subtitle: "2023"}
+  ]
+
+  const stacks = [
+    {imgUrl : "/icons8-nextjs.svg", bgColor: "bg-white"},
+    {imgUrl : "/icons8-nodejs.svg", bgColor: "bg-white"},
+    {imgUrl : "/icons8-postgresql.svg", bgColor: "bg-white"},
+    {imgUrl : "/icons8-prisma-orm.svg", bgColor: "bg-white"},
+    {imgUrl : "/icons8-python.svg", bgColor: "bg-white"},
+    {imgUrl : "/icons8-react.svg", bgColor: "bg-white"},
+    {imgUrl : "/icons8-typescript.svg", bgColor: "bg-white"},
+    {imgUrl : "/icons8-c.svg", bgColor: "bg-white"},
+    {imgUrl : "/icons8-rider-jetbrains.svg", bgColor: "bg-white"},
+    {imgUrl : "/icons8-unity.svg", bgColor: "bg-white"},
+    {imgUrl : "/icons8-tailwindcss.svg", bgColor: "bg-white"},
+
   ]
 
   return (
@@ -34,6 +50,10 @@ export default function Home() {
       <Lists href="/projects" title="Projects" list={projects}/>
 
       <Lists href="/blogs" title="Writings" list={writings}/>
+
+      <Stacks title="My Tools" list={stacks}/>
+
+      <p className="text-sm text-argent">© 2023 Imam Syahid Hudzaifah</p>
     </main>
   )
 }
