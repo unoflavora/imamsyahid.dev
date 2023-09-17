@@ -6,11 +6,12 @@ import useTextAnimator from "../lib/TextAnimator";
 
 export default function () 
 {
+    const title = useTextAnimator("Products");
 
     return (
-        <div className="flex flex-col gap-8 pb-8">
+        <div className="flex flex-col gap-8">
         <div className="flex justify-between w-full">
-            <h1 className="text-white font-semibold text-lg">Products</h1>
+            <h1 className="text-white font-semibold text-lg">{title}</h1>
             <Link href="/products">
                 <p className="inline-flex gap-1 font-semibold text-argent">All <Image src={"/arrow-right.svg"} width={15} height={15} alt="view all item"/></p>
             </Link>

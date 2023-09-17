@@ -17,10 +17,10 @@ export default function useTextAnimator (text : string)
                 let randomIndex = randomIndexPicker(randomChar);
                 let prevChar = text.charAt(replacedIndex);
         
-                setCurrentText(text.replace(prevChar, randomChar[randomIndex]))
+                setCurrentText(text.replaceAll(prevChar, randomChar[randomIndex]))
         
                 let timeout = setTimeout(() => {
-                    setCurrentText(text.replace(randomChar[randomIndex], prevChar))
+                    setCurrentText(text.replaceAll(randomChar[randomIndex], prevChar))
                 }, 50 * i)
                 timeouts.push(timeout)
             }, 50 * i)

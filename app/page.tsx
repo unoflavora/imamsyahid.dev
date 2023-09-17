@@ -1,5 +1,6 @@
 import Lists from "./components/Lists";
 import Me from "./components/Me";
+import MeDescription from "./components/MeDescription";
 import Products from "./components/Products";
 import Stacks from "./components/Stacks";
 
@@ -13,7 +14,7 @@ export default function Home() {
   const projects = [
       {title: "Voice Scream", category: "Web Games", subtitle: "2022"},
       {title: "Match Three", category: "Web Games", subtitle: "2023"},
-      {title: "Kanban Management", category: "Web App", subtitle: "2023"},
+      {title: "Kanban Mawnagement", category: "Web App", subtitle: "2023"},
       {title: "Kanban Management", category: "Web App", subtitle: "2023"}
   ]
 
@@ -36,24 +37,32 @@ export default function Home() {
     {imgUrl : "/icons8-rider-jetbrains.svg", bgColor: "bg-white"},
     {imgUrl : "/icons8-unity.svg", bgColor: "bg-white"},
     {imgUrl : "/icons8-tailwindcss.svg", bgColor: "bg-white"},
-
   ]
 
   return (
-    <main className='px-5 py-6 min-h-screen bg-[#1E1E1E] flex flex-col gap-12'>
+    <main className='flex flex-col gap-10 md:gap-16 px-5 md:px-0 pb-20'>
       <Me/>
       
-      <Products/>
+      <div className="flex flex-col gap-5 md:gap-16 animate-component-in-bottom">
+        <MeDescription/>
 
-      <Lists href="/findme" title="Where" list={socials}/>
+        <div className="flex flex-col gap-10 md:gap-16">
 
-      <Lists href="/projects" title="Projects" list={projects}/>
+          <Products/>
 
-      <Lists href="/blogs" title="Writings" list={writings}/>
+          <Lists href="/findme" title="Where" list={socials}/>
 
-      <Stacks title="My Tools" list={stacks}/>
+          <Lists href="/projects" title="Projects" list={projects}/>
 
-      <p className="text-sm text-argent">© 2023 Imam Syahid Hudzaifah</p>
+          <Lists href="/blogs" title="Writings" list={writings}/>
+
+          <Stacks title="My Tools" list={stacks}/>
+
+          <p className="text-sm text-argent">© 2023 Imam Syahid Hudzaifah</p>
+        </div>
+       
+
+      </div>
     </main>
   )
 }

@@ -10,7 +10,7 @@ type ListsProps = {title : string, href: string, list: List[]}
 
 export default function (props: ListsProps)
 {
-    const title = useTextAnimator(props.title);
+    const title = useTextAnimator(props.title);    
 
     return <div className="flex flex-col gap-5">
     <div className="flex justify-between w-full">

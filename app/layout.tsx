@@ -18,9 +18,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body suppressHydrationWarning={true} className={inter.className}>
-        <Navbar/>
-        {children}
+      <body suppressHydrationWarning={true} className={inter.className }>
+        <div className=' flex justify-center min-h-screen bg-[#1E1E1E]'>
+          <div className='py-6 relative max-w-xl flex justify-center '>
+            {children}
+            <Navbar/>
+
+          </div>
+
+        </div>
       </body>
     </html>
   )
