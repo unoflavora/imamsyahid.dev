@@ -22,11 +22,13 @@ export default function ()
             setTransitionOut(true)
         }, 1500)
         
-        return () => clearTimeout(delay)
+        return () => {clearTimeout(delay); clearTimeout(out)}
     }, [currentIndex])
 
     return(
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-5">
+            
             <div className='flex gap-3'>
                 <div className='w-12 aspect-square rounded-full bg-white'/>
                 <div className='flex flex-col'>
@@ -41,6 +43,8 @@ export default function ()
             <h2 className="text-base text-argent leading-snug">
                 I'm Imam Syahid, a passionate full-stack engineer living in Bandung, Indonesia. My work spans across multiple diciplines from games, web apps, and general software alike.
             </h2>
+
+            </div>
 
             <h3 className="flex gap-2 items-center text-sm text-argent"><div className="w-3 h-3 rounded-full bg-green-500"></div> Available for new opportunities</h3>
 

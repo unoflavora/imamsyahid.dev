@@ -8,7 +8,7 @@ export default function ()
 {
 
     return (
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col gap-8 pb-8">
         <div className="flex justify-between w-full">
             <h1 className="text-white font-semibold text-lg">Products</h1>
             <Link href="/products">

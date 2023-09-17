@@ -25,7 +25,7 @@ export default function (props: ListsProps)
     <div className="flex flex-col gap-3 text-[.9rem]">
         {props.list.map((l, i) => i <= 2 && <article key={props.title + i} className="flex gap-3 items-end w-full text-argent">
             <h1 className="min-w-max ">{l.title}</h1>
-            <div className="w-full h-[0.08px] mb-1.5 bg-gray-50 opacity-20"/>
+            <div className="w-full h-[0.08px] mb-1.5 bg-[#303030]"/>
             <div className="min-w-max flex gap-3">
                 <h2>{l.category}</h2>
                 <h2>{l.subtitle}</h2>

@@ -40,7 +40,7 @@ export default function Home() {
   ]
 
   return (
-    <main className='px-3 py-6 min-h-screen bg-[#1E1E1E] flex flex-col gap-10'>
+    <main className='px-5 py-6 min-h-screen bg-[#1E1E1E] flex flex-col gap-12'>
       <Me/>
       
       <Products/>
