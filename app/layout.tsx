@@ -9,10 +9,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Imam Syahid - Fullstack Engineer',
-  description: 'Imam Syahid Official Page',
-  icons: {
-    icon: {url: "/favicon.ico"}
-  }
+  description: 'Imam Syahid Hudzaifah\'s Personal Portofolio Page',
 }
 
 export default function RootLayout({
@@ -22,6 +19,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+
+      <head>
+        <link rel='icon' href='/favicon.ico'/>
+      </head>
+
       <body suppressHydrationWarning={true} className={inter.className }>
         <div className=' flex justify-center min-h-screen bg-[#1E1E1E]'>
           <div className='py-6 relative md:max-w-xl flex justify-center '>
