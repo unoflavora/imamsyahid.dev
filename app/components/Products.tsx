@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import useTextAnimator from "../lib/TextAnimator";
 
-export default function () 
+export default function Products () 
 {
     const title = useTextAnimator("Products");
 

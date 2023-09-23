@@ -40,13 +40,13 @@ export default function Home() {
   ]
 
   return (
-    <main className='flex flex-col gap-10 md:gap-16 px-5 md:px-0 pb-20'>
+    <main className='flex flex-col gap-10 px-5 md:px-0 pb-20'>
       <Me/>
       
-      <div className="flex flex-col gap-5 md:gap-16 animate-component-in-bottom">
+      <div className="flex flex-col gap-5 animate-component-in-bottom">
         <MeDescription/>
 
-        <div className="flex flex-col gap-10 md:gap-16">
+        <div className="flex flex-col gap-10">
 
           <Products/>
 

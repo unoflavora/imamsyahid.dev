@@ -8,7 +8,7 @@ type List = {title: string, subtitle: string, category?: string}
 
 type ListsProps = {title : string, href: string, list: List[]}
 
-export default function (props: ListsProps)
+export default function Lists (props: ListsProps)
 {
     const title = useTextAnimator(props.title);    
 

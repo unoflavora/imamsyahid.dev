@@ -2,7 +2,7 @@
 import Image from "next/image";
 import useTextAnimator from "../lib/TextAnimator"
 
-export default function (props: {title: string, list: {imgUrl: string, bgColor: string}[]})
+export default function Stacks (props: {title: string, list: {imgUrl: string, bgColor: string}[]})
 {
     const title = useTextAnimator(props.title);
 

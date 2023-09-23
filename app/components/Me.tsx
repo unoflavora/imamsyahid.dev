@@ -3,7 +3,7 @@
 import useTextAnimator from "../lib/TextAnimator";
 
 
-export default function ()
+export default function Me ()
 {
     const name = useTextAnimator("Imam Syahid Hudzaifah")
 

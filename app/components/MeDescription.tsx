@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 const skills = ["web apps", "games", "software"]
 
-export default function ()
+export default function MeDescriptions ()
 {
     const [currentIndex, setCurrentIndex] = useState<number>(0);
     const [transitionOut, setTransitionOut] = useState(false);
@@ -29,7 +29,7 @@ export default function ()
         {skills.map((skill, i) => skill === skills[currentIndex] && <span key={"skill " + i} className={`font-normal text-white ${transitionOut ? "animate-text-out" : "animate-text-in"} ml-2 absolute`}> {skill}.</span>)}
     </h1>
     <h2 className="text-base text-argent leading-snug">
-        I'm Imam Syahid, a passionate full-stack engineer living in Bandung, Indonesia. My work spans across multiple diciplines from games, web apps, and general software alike.
+        I&apos;m Imam Syahid, a passionate full-stack engineer living in Bandung, Indonesia. My work spans across multiple diciplines from games, web apps, and general software alike.
     </h2>
 
 
