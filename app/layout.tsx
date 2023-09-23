@@ -10,12 +10,7 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Imam Syahid - Fullstack Engineer',
   description: 'Imam Syahid Official Page',
-  icons: {
-    icon: [{url : "https://framerusercontent.com/modules/v0gBipT6q9nc9Ewalyhi/9jXzUJidVKnLeXiSdAIx/assets/qr5wm2HNKVjkLO8sYY233LWzaA.png"}]
-  }
 }
-
-export const icon: Icon = "https://framerusercontent.com/modules/v0gBipT6q9nc9Ewalyhi/9jXzUJidVKnLeXiSdAIx/assets/qr5wm2HNKVjkLO8sYY233LWzaA.png" 
 
 export default function RootLayout({
   children,
