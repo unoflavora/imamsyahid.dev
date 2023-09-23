@@ -21,7 +21,8 @@ export default function RootLayout({
     <html lang="en">
 
       <head>
-        <link rel='icon' href='/favicon.ico'/>
+        <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon" />
+        <link rel="shortcut icon" href="/favicon.ico?v=2" type="image/x-icon" />
       </head>
 
       <body suppressHydrationWarning={true} className={inter.className }>
