@@ -4,7 +4,7 @@ import MeDescription from "./components/MeDescription";
 import Products from "./components/Products";
 import Stacks from "./components/Stacks";
 
-export default function Home() {
+export default function Page() {
   const socials = [
       {title : "Instagram", subtitle: "Follow"},
       {title : "Leetcode", subtitle: "Follow"},
