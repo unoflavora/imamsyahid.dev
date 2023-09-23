@@ -40,7 +40,7 @@ export default function Page() {
   ]
 
   return (
-    <main className='flex flex-col gap-10 px-5 md:px-0 pb-20'>
+    <main className='flex flex-col gap-10 px-5 md:px-0 pb-20 '>
       <Me/>
       
       <div className="flex flex-col gap-5 animate-component-in-bottom">

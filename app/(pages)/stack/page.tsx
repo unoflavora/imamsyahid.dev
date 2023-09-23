@@ -1,4 +1,4 @@
-export default function Stacks()
+export default function Page()
 {
     return <div>
         
