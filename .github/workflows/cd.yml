@@ -15,7 +15,7 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - name: Deploy using ssh
+    - name: Build App
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.HOST }}
@@ -27,4 +27,5 @@ jobs:
           git pull origin main
           git status
           npm install
+          npm run build
           pm2 restart personal-page
