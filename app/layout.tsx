@@ -3,13 +3,19 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Image from 'next/image'
 import Navbar from './layout/navbar'
+import { Icon } from 'next/dist/lib/metadata/types/metadata-types'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Imam Syahid - Fullstack Engineer',
   description: 'Imam Syahid Official Page',
+  icons: {
+    icon: [{url : "https://framerusercontent.com/modules/v0gBipT6q9nc9Ewalyhi/9jXzUJidVKnLeXiSdAIx/assets/qr5wm2HNKVjkLO8sYY233LWzaA.png"}]
+  }
 }
+
+export const icon: Icon = "https://framerusercontent.com/modules/v0gBipT6q9nc9Ewalyhi/9jXzUJidVKnLeXiSdAIx/assets/qr5wm2HNKVjkLO8sYY233LWzaA.png" 
 
 export default function RootLayout({
   children,
@@ -20,7 +26,7 @@ export default function RootLayout({
     <html lang="en">
       <body suppressHydrationWarning={true} className={inter.className }>
         <div className=' flex justify-center min-h-screen bg-[#1E1E1E]'>
-          <div className='py-6 relative md:max-w-xl lg:max-w-sm flex justify-center '>
+          <div className='py-6 relative md:max-w-xl flex justify-center '>
             {children}
             <Navbar/>
 

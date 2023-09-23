@@ -22,7 +22,7 @@ export default function Lists (props: ListsProps)
         
     </div>
 
-    <div className="flex flex-col gap-3 text-[.9rem]">
+    <div className="flex flex-col gap-3 text-[.9rem] md:text-base">
         {props.list.map((l, i) => i <= 2 && <article key={props.title + i} className="flex gap-3 items-end w-full text-argent">
             <h1 className="min-w-max ">{l.title}</h1>
             <div className="w-full h-[0.08px] mb-1.5 bg-[#303030]"/>

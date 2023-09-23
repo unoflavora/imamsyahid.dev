@@ -25,10 +25,10 @@ export default function MeDescriptions ()
     }, [currentIndex])
 
     return <div className="flex flex-col gap-5">
-    <h1 className="text-2xl font-semibold text-argent">I develop 
+    <h1 className="text-2xl md:text-3xl font-semibold text-argent">I develop 
         {skills.map((skill, i) => skill === skills[currentIndex] && <span key={"skill " + i} className={`font-normal text-white ${transitionOut ? "animate-text-out" : "animate-text-in"} ml-2 absolute`}> {skill}.</span>)}
     </h1>
-    <h2 className="text-base text-argent leading-snug">
+    <h2 className="text-base md:text-2xl text-argent leading-snug">
         I&apos;m Imam Syahid, a passionate full-stack engineer living in Bandung, Indonesia. My work spans across multiple diciplines from games, web apps, and general software alike.
     </h2>
 
