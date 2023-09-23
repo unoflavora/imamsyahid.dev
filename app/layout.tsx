@@ -10,6 +10,9 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Imam Syahid - Fullstack Engineer',
   description: 'Imam Syahid Official Page',
+  icons: {
+    icon: {url: "/favicon.ico"}
+  }
 }
 
 export default function RootLayout({
