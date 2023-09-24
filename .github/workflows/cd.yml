@@ -23,9 +23,4 @@ jobs:
         key: ${{ secrets.PRIVATE_KEY }}
         port: 22
         script: |
-          cd /var/www/personalpage/unoflavora-personalweb
-          git pull origin main
-          git status
-          npm install
-          npm run build
-          pm2 restart personal-page
+          docker exec -it node-server /bin/sh "./root/pull.sh"
