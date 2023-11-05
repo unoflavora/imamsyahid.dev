@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .bounce-fade-in {
+    @apply animate-fade-up animate-once animate-ease-in-out animate-normal animate-fill-forwards animate-duration-500;
+  }
+}

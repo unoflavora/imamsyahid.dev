@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import useTextAnimator from "../lib/TextAnimator";
+import useTextAnimator from "../../hooks/TextAnimator";
 import RightArrow from "@/public/arrow-right.svg";
 
 type List = { title: string; subtitle: string; category?: string };
