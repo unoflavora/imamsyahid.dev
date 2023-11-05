@@ -12,7 +12,7 @@ export default function Stacks(props: {
   return (
     <div className="flex flex-col gap-5">
       <div className="flex justify-between w-full">
-        <h1 className="text-white font-semibold text-lg">{title}</h1>
+        =<h1 className="text-white font-semibold text-lg">{title}</h1>
       </div>
 
       <div className="flex flex-wrap w-full gap-3">
@@ -24,7 +24,7 @@ export default function Stacks(props: {
             className={`relative flex gap-3 p-1 w-10 h-10 justify-center items-center rounded-full ${l.bgColor} group/item`}
           >
             <Image
-              className="w-full"
+              className="w-full "
               src={l.imghref}
               height={25}
               width={25}

@@ -20,7 +20,7 @@ export default function Navbar() {
 
   return (
     <div className="fixed bottom-4 w-full md:max-w-sm px-3 py-2 md:px-0 md:bottom-10   ">
-      <div className="flex justify-between bg-[#2F2F2F] backdrop-blur-xl rounded-full py-2 md:py-1 px-2">
+      <div className="flex justify-between bg-[#2F2F2F] backdrop-blur-xl rounded-full py-2 px-4">
         {pages.map((page, i) => {
           let Icon = (Icons as any)[page];
           return (
@@ -37,7 +37,7 @@ export default function Navbar() {
                   fill={`${selected === page ? "black" : "rgb(136,136,136)"}`}
                 />
               </div>
-              <div className="absolute opacity-0 bg-argent py-1 px-3 rounded-full -top-[80%] group-hover/item:opacity-100 group-hover/item:bounce-fade-in capitalize ">
+              <div className="absolute opacity-0 bg-argent py-1 px-3 rounded-full -top-[60%] group-hover/item:opacity-100 group-hover/item:bounce-fade-in capitalize ">
                 {page}
               </div>
             </Link>
