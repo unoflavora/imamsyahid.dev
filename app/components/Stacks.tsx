@@ -12,7 +12,7 @@ export default function Stacks(props: {
   return (
     <div className="flex flex-col gap-5">
       <div className="flex justify-between w-full">
-        =<h1 className="text-white font-semibold text-lg">{title}</h1>
+        <h1 className="text-white font-semibold text-lg">{title}</h1>
       </div>
 
       <div className="flex flex-wrap w-full gap-3">
