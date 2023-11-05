@@ -12,12 +12,12 @@ export default function Products() {
       <div className="flex justify-between w-full">
         <h1 className="text-white font-semibold text-lg">{title}</h1>
         <Link href="/products">
-          <p className="inline-flex gap-1 font-semibold text-argent">
+          <h2 className="inline-flex gap-1 font-semibold text-argent">
             {" "}
             <p className="inline-flex justify-center items-center gap-1 font-semibold text-argent hover:text-white fill-argent hover:fill-white transition-colors">
               All <RightArrow className="w-4 h-4" />
             </p>
-          </p>
+          </h2>
         </Link>
       </div>
 

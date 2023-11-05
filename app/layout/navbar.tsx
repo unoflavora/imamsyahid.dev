@@ -32,11 +32,11 @@ export default function Navbar() {
                 selected === page ? "bg-[#D6D6D6]" : "bg-none"
               }  rounded-full group/item`}
             >
-              <span className="w-7 h-7 flex justify-center items-center">
+              <div className="w-7 h-7 flex justify-center items-center">
                 <Icon
                   fill={`${selected === page ? "black" : "rgb(136,136,136)"}`}
                 />
-              </span>
+              </div>
               <span className="absolute opacity-0 bg-argent py-1 px-3 rounded-full -top-[60%] group-hover/item:opacity-100 group-hover/item:bounce-fade-in capitalize ">
                 {page}
               </span>

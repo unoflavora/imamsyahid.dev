@@ -38,7 +38,7 @@ export default function Lists(props: ListsProps) {
                 <h1 className="min-w-max ">{l.title}</h1>
                 <div className="w-full h-[.033rem] mb-1.5 bg-[#303030] group-hover:bg-gradient-to-r group-hover:animate-linear-bg from-white to-slate-800 transition-colors" />
                 <div className="min-w-max flex gap-3">
-                  <h2>{l.category}</h2>
+                  <h1>{l.category}</h1>
                   <h2>{l.subtitle}</h2>
                 </div>
               </Link>
