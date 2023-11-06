@@ -5,7 +5,7 @@ import Icons from "@/public/nav";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const pages = ["home", "blog", "products", "projects", "stack", "contact"];
+const pages = ["home", "blogs", "products", "projects", "stack", "contact"];
 
 export default function Navbar() {
   const [selected, setSelected] = useState(pages[0]);
@@ -17,6 +17,7 @@ export default function Navbar() {
     if (path === "") setSelected("home");
     else setSelected(path);
   }, [pathName]);
+  console.log(selected);
 
   return (
     <div className="fixed bottom-4 w-full md:max-w-sm px-3 py-2 md:px-0 md:bottom-10   ">

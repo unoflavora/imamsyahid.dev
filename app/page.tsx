@@ -89,7 +89,7 @@ export default function Page() {
   ];
 
   return (
-    <main className="flex flex-col gap-10 md:gap-14 px-5 md:px-0 pb-20 ">
+    <main className="flex flex-col gap-10 md:gap-14   ">
       <Me />
 
       <div className="flex flex-col gap-5 md:gap-20 animate-component-in-bottom">
@@ -107,8 +107,6 @@ export default function Page() {
           <Lists href="/blogs" title="Writings" list={writings} />
 
           <Stacks title="My Tools" list={stacks} />
-
-          <p className="text-sm text-argent">© 2023 Imam Syahid Hudzaifah</p>
         </div>
       </div>
     </main>

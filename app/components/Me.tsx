@@ -1,6 +1,6 @@
 "use client";
 
-import useTextAnimator from "../../hooks/TextAnimator";
+import useTextAnimator from "../../hooks/useTextAnimator";
 
 export default function Me() {
   const name = useTextAnimator("Imam Syahid Hudzaifah");

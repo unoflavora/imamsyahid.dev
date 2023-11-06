@@ -1,49 +1,14 @@
-"use client";
-
+import Button from "@/components/ui/Button";
+import TextSwitcher from "@/components/ui/TextSwitcher";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-
-const skills = ["web apps", "games", "software"];
 
 export default function MeDescriptions() {
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const [transitionOut, setTransitionOut] = useState(false);
-
-  useEffect(() => {
-    const delay = window.setTimeout(() => {
-      setTransitionOut(false);
-      setCurrentIndex((currentIndex + 1) % skills.length);
-    }, 2000);
-
-    const out = window.setTimeout(() => {
-      setTransitionOut(true);
-    }, 1500);
-
-    return () => {
-      clearTimeout(delay);
-      clearTimeout(out);
-    };
-  }, [currentIndex]);
-
   return (
     <div className="flex flex-col gap-5">
       <h1 className="text-2xl md:text-3xl font-semibold text-argent">
         I develop
-        {skills.map(
-          (skill, i) =>
-            skill === skills[currentIndex] && (
-              <span
-                key={"skill " + i}
-                className={`font-normal text-white ${
-                  transitionOut ? "animate-text-out" : "animate-text-in"
-                } ml-2 absolute`}
-              >
-                {" "}
-                {skill}.
-              </span>
-            )
-        )}
+        <TextSwitcher texts={["web apps", "games", "software"]} />
       </h1>
       <h2 className="text-base md:text-2xl text-argent leading-snug">
         I&apos;m Imam Syahid, a passionate full-stack engineer living in
@@ -56,13 +21,12 @@ export default function MeDescriptions() {
         new opportunities
       </h3>
 
-      <Link
-        href="/contact"
-        className="px-4 py-2 inline-flex gap-2 bg-[#303030] hover:bg-[#303030]/80 w-fit rounded-lg text-white font-semibold"
-      >
-        <Image src={"/mail.svg"} height={25} width={25} alt="mail-label" />
-        Contact Me
-      </Link>
+      <Button>
+        <Link href="/contact" className="flex gap-2">
+          <Image src={"/mail.svg"} height={25} width={25} alt="mail-label" />
+          Contact Me
+        </Link>
+      </Button>
     </div>
   );
 }

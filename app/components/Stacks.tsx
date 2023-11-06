@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import useTextAnimator from "../../hooks/TextAnimator";
+import useTextAnimator from "../../hooks/useTextAnimator";
 import Link from "next/link";
 
 export default function Stacks(props: {

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import useTextAnimator from "../../hooks/TextAnimator";
+import useTextAnimator from "../../hooks/useTextAnimator";
 import RightArrow from "@/public/arrow-right.svg";
 export default function Products() {
   const title = useTextAnimator("Products");
