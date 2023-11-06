@@ -30,7 +30,7 @@ export default function Stacks(props: {
               width={25}
               alt={"icon of " + props.title}
             />
-            <h1 className="absolute text-sm min-w-max opacity-0 bg-white text-black py-1 px-3 rounded-full -top-full group-hover/item:opacity-100 group-hover/item:bounce-fade-in capitalize ">
+            <h1 className="absolute text-sm min-w-max hidden bg-white text-black py-1 px-3 rounded-full -top-full [@media(any-hover:hover)]:group-hover/item:bounce-fade-in capitalize ">
               {l.name}
             </h1>
           </Link>

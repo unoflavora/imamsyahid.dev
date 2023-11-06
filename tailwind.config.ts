@@ -76,6 +76,7 @@ const config: Config = {
             transform: "translateY(0%)",
           },
         },
+        
       },
     },
   },
