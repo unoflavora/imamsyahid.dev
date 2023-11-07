@@ -46,8 +46,8 @@ const ArticleHeader = React.forwardRef<
 
   return (
     <Link
-      className="hover:scale-105 transition-transform"
-      href={`/blog/${blog.slug}`}
+      className="hover:scale-105 transition-transform group"
+      href={`/blogs/${blog.slug}`}
     >
       <article className="flex flex-col gap-2 text-argent">
         <p className="w-full inline-flex justify-between text-sm">
@@ -64,7 +64,10 @@ const ArticleHeader = React.forwardRef<
           width={500}
           height={500}
           alt={`cover image of ${blog.title}`}
-          className={cn("w-full", props.className)}
+          className={cn(
+            "w-full group-hover:brightness-125 transition-all",
+            props.className
+          )}
         />
 
         <h1 className="text-argent text-lg">

@@ -26,6 +26,7 @@ const config: Config = {
         "linear-bg": "textclip 1s linear infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        jumpIn: "jumps .5s both cubic-bezier(0.175, 0.885, 0.32, 1.275)",
       },
       keyframes: {
         textclip: {
@@ -76,10 +77,18 @@ const config: Config = {
             transform: "translateY(0%)",
           },
         },
-        
+        jumps: {
+          "0%": {
+            transform: "scale(50%);",
+          },
+
+          "100% ": {
+            transform: "scale(100%);",
+          },
+        },
       },
     },
   },
-  plugins: [require("tailwindcss-animated")],
+  plugins: [require("tailwindcss-animated"), require("tailwindcss-animate")],
 };
 export default config;

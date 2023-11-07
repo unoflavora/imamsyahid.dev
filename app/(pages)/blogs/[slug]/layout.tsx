@@ -15,8 +15,11 @@ export default function Layout({
   if (!blog) notFound();
 
   return (
-    <div className="w-full flex flex-col items-start gap-10">
-      <Link href="/blogs" className="text-argent flex items-center gap-2   ">
+    <div className="w-full flex flex-col items-start gap-10 ">
+      <Link
+        href="/blogs"
+        className="text-argent flex items-center gap-2 hover:text-white transition-colors animate-component-in-up  "
+      >
         <ArrowLeftCircleIcon /> Blog
       </Link>
 
