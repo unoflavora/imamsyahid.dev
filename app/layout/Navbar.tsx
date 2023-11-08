@@ -20,13 +20,13 @@ export default function Navbar() {
   console.log(selected);
 
   return (
-    <div className="fixed bottom-4 w-full md:max-w-sm px-3 py-2 md:px-0 md:bottom-10   ">
+    <div className="fixed bottom-4 w-full md:max-w-sm px-3 py-2 md:px-0 md:bottom-4   ">
       <div className="flex justify-between bg-[#2F2F2F] backdrop-blur-xl rounded-full py-2 px-4">
         {pages.map((page, i) => {
           let Icon = (Icons as any)[page];
           return (
             <Link
-              href={page === "home" ? "/" : page}
+              href={page === "home" ? "/" : `/${page}`}
               onClick={() => setSelected(page)}
               key={"item-icon " + page}
               className={`p-1.5 h-fit  flex justify-center items-center ${
