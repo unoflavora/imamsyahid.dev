@@ -1,6 +1,78 @@
 export default {
+  stacks: [
+    {
+      imghref: "/icons8-nextjs.svg",
+      name: "NextJS",
+      href: "https://nextjs.org/",
+      bgColor: "bg-white",
+      category: "React Framework",
+    },
+    {
+      imghref: "/icons8-express.svg",
+      name: "Express",
+      href: "https://expressjs.com/",
+      bgColor: "bg-white",
+      category: "Backend Framework",
+    },
+    {
+      imghref: "/icons8-graphql.svg",
+      name: "GraphQL",
+      href: "https://graphql.org/",
+      bgColor: "bg-white",
+      category: "Query Language",
+    },
+    {
+      imghref: "/icons8-postgresql.svg",
+      name: "Postgres",
+      href: "https://www.postgresql.org/",
+      bgColor: "bg-white",
+      category: "Relational Database",
+    },
+    {
+      imghref: "/icons8-prisma-orm.svg",
+      name: "Prisma",
+      href: "https://www.prisma.io/",
+      bgColor: "bg-white",
+      category: "ORM",
+    },
+    {
+      imghref: "/icons8-framer.svg",
+      name: "Framer Motion",
+      href: "https://www.framer.com/motion/",
+      bgColor: "bg-white",
+      category: "Animation Library",
+    },
+    {
+      imghref: "/icons8-tailwindcss.svg",
+      name: "Tailwind",
+      href: "https://tailwindcss.com/",
+      bgColor: "bg-white",
+      category: "CSS Framework",
+    },
+    {
+      imghref: "/icons8-docker.svg",
+      name: "Docker",
+      href: "https://www.docker.com/",
+      bgColor: "bg-white",
+      category: "Container Development",
+    },
+    {
+      imghref: "/icons8-threejs.svg",
+      name: "ThreeJS",
+      href: "https://threejs.org/",
+      bgColor: "bg-white",
+      category: "3D Library",
+    },
+    {
+      imghref: "/icons8-unity.svg",
+      name: "Unity",
+      href: "https://unity.com/",
+      bgColor: "bg-white",
+      category: "Game Engine",
+    },
+  ],
   dummyData: {
-    blogs : [
+    blogs: [
       {
         title: "How AI is going to impact design",
         date: new Date(),
@@ -33,5 +105,3 @@ export default {
     ],
   },
 } as const;
-
- 

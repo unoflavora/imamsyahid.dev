@@ -2,12 +2,11 @@
 import Image from "next/image";
 import useTextAnimator from "../../hooks/useTextAnimator";
 import Link from "next/link";
+import config from "../config";
 
-export default function Stacks(props: {
-  title: string;
-  list: { imghref: string; bgColor: string; name: string; href: string }[];
-}) {
-  const title = useTextAnimator(props.title);
+export default function Stacks() {
+  const title = useTextAnimator("My Tools");
+  const list = config.stacks;
 
   return (
     <div className="flex flex-col gap-5">
@@ -16,7 +15,7 @@ export default function Stacks(props: {
       </div>
 
       <div className="flex flex-wrap w-full gap-3">
-        {props.list.map((l, i) => (
+        {list.map((l, i) => (
           <Link
             href={l.href}
             target="_blank"
@@ -28,7 +27,7 @@ export default function Stacks(props: {
               src={l.imghref}
               height={25}
               width={25}
-              alt={"icon of " + props.title}
+              alt={"icon of " + l.name}
             />
             <h1 className="absolute text-sm min-w-max hidden bg-white text-black py-1 px-3 rounded-full -top-full [@media(any-hover:hover)]:group-hover/item:bounce-fade-in capitalize ">
               {l.name}

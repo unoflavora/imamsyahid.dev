@@ -15,11 +15,14 @@ Article.Header = function ArticleHeader(
     React.HTMLAttributes<HTMLDivElement>
 ) {
   return (
-    <div
-      className={cn("flex flex-col animate-component-in-up", props.className)}
-    >
+    <div className={cn("flex flex-col animate-component-in-up")}>
       <h1 className="text-argent">{props.title}</h1>
-      <header className="py-12 text-argent text-2xl inline-flex gap-2">
+      <header
+        className={cn(
+          "py-12 text-argent text-2xl inline-flex gap-2",
+          props.className
+        )}
+      >
         {props.children}
       </header>
     </div>
