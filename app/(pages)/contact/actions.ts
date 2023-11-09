@@ -6,7 +6,6 @@ import { Resend } from "resend";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function sendEmail(currentState: any, formData: FormData) {
-  console.log(currentState);
   const message = formData.get("text") as string;
   const email = formData.get("email") as string;
   const name = formData.get("name") as string;

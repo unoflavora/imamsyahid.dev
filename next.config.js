@@ -30,6 +30,11 @@ const nextConfig = {
   images: {
     domains: ["framerusercontent.com"],
   },
+  experimental: {
+    serverActions: {
+      allowedForwardedHosts: ["imamsyahid.dev"],
+    },
+  },
 };
 
 module.exports = nextConfig;
