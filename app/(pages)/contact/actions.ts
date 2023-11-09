@@ -2,11 +2,16 @@
 import { EmailTemplate } from "@/components/email/template";
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { headers } from "next/headers";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function sendEmail(currentState: any, formData: FormData) {
+  const headersList = headers();
+  console.table(Array.from(headersList.entries()));
+
   const message = formData.get("text") as string;
+
   const email = formData.get("email") as string;
   const name = formData.get("name") as string;
 
