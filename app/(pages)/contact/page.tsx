@@ -3,8 +3,12 @@ import Button from "@/components/ui/Button";
 import TextSwitcher from "@/components/ui/TextSwitcher";
 import { CalendarIcon, ClockIcon } from "lucide-react";
 import ContactForm from "./form";
+import { headers } from "next/headers";
 
 export default function Page() {
+  const headersList = headers();
+  console.table(Array.from(headersList.entries()));
+
   return (
     <Article>
       <Article.Header className="flex flex-col gap-4 md:gap-8" title="Contact">
