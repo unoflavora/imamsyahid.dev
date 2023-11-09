@@ -17,7 +17,6 @@ export default function Navbar() {
     if (path === "") setSelected("home");
     else setSelected(path);
   }, [pathName]);
-  console.log(selected);
 
   return (
     <div className="fixed bottom-4 w-full md:max-w-sm px-3 py-2 md:px-0 md:bottom-4   ">

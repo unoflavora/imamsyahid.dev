@@ -32,7 +32,6 @@ Article.Header = function ArticleHeader(
 Article.Body = function ArticleBody(
   props: React.PropsWithChildren & React.HTMLAttributes<HTMLDivElement>
 ) {
-  console.log(props.className);
   return (
     <div
       className={cn(

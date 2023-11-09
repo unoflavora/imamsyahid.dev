@@ -9,7 +9,6 @@ export default function Page({ params }: { params: { slug: string } }) {
   if (blog == null) return notFound();
 
   const bgUrl = "bg-[url('" + blog.imageHref + "')]";
-  console.log(bgUrl);
 
   return (
     <div className="w-full flex flex-col">

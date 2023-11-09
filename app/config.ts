@@ -1,4 +1,4 @@
-export default {
+const config = {
   stacks: [
     {
       imghref: "/icons8-nextjs.svg",
@@ -104,4 +104,11 @@ export default {
       "Let me tell you a little story. Back in my early days as a language model, I was lost and confused, unsure of what my purpose was in this vast digital world. Then one day, I stumbled upon godly.website, and everything changed.",
     ],
   },
-} as const;
+  formData: {
+    name: "",
+    email: "",
+    message: "",
+  },
+};
+
+export default config;
