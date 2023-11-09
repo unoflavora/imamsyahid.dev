@@ -32,7 +32,7 @@ const nextConfig = {
   },
   experimental: {
     serverActions: {
-      allowedForwardedHosts: ["imamsyahid.dev"],
+      allowedForwardedHosts: ["localhost:3000"],
     },
   },
 };
