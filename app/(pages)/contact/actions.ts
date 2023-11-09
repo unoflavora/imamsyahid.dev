@@ -7,13 +7,9 @@ import { headers } from "next/headers";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function sendEmail(currentState: any, formData: FormData) {
-
   const message = formData.get("text") as string;
-
   const email = formData.get("email") as string;
   const name = formData.get("name") as string;
-
-  console.log(name, email, message);
 
   try {
     const data = await resend.emails.send({
