@@ -1,9 +1,24 @@
 import config from "@/app/config";
+import { serializeHTML } from "@/app/lib/serializeHTML";
+import ContentData from "@/app/types/ContentData";
 import AnimatedText from "@/components/ui/AnimatedText";
 import { Article } from "@/components/ui/ArticleShowcase";
+import { notFound } from "next/navigation";
 import React from "react";
-export default function Page() {
+import { serialize } from "v8";
+export default async function Page() {
   const blogs = config.dummyData.blogs;
+
+  const data: ContentData = await (
+    await fetch(process.env.CMS_API + "/api/projects" + "?depth=1", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+  ).json();
+
+  if (data.errors) return notFound();
 
   return (
     <Article>
@@ -12,7 +27,7 @@ export default function Page() {
         <AnimatedText className="text-white" text="work" />
       </Article.Header>
 
-      <Article.Items articles={blogs} rootUrl="projects" />
+      <Article.Items articles={data.docs} rootUrl="projects" />
     </Article>
   );
 }

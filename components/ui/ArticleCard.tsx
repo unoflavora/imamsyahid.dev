@@ -3,10 +3,12 @@ import AnimatedText from "./AnimatedText";
 import Image from "next/image";
 import React from "react";
 import { cn } from "@/lib/utils";
+import { Doc } from "@/app/types/ContentData";
+import MediaData from "@/app/types/MediaData";
 
 type ArticleProp = {
   rootUrl: string;
-  article: ArticleData;
+  article: Doc;
   config?: {
     showYearOnly?: boolean;
   };
@@ -23,8 +25,16 @@ export type ArticleData = {
 const ArticleCard = React.forwardRef<
   HTMLImageElement,
   ArticleProp & React.HtmlHTMLAttributes<HTMLAnchorElement>
->(function Article(props, ref) {
+>(async function Article(props, ref) {
   const { article, config } = props;
+
+  const res = await fetch(
+    process.env.CMS_API + `/api/media/${article.headerImage.id}`
+  );
+  const data: MediaData = await res.json();
+  if (data.errors != null) {
+    throw new Error(data.errors.message);
+  }
 
   return (
     <Link
@@ -33,20 +43,20 @@ const ArticleCard = React.forwardRef<
     >
       <li className="flex flex-col gap-2 text-argent">
         <p className="w-full inline-flex justify-between text-sm">
-          <AnimatedText className="text-sm" text={article.category} />
+          {/* <AnimatedText className="text-sm" text={article.category} /> */}
           <AnimatedText
             className="text-sm"
             text={
               config != null && config.showYearOnly
-                ? article.date.getFullYear().toString()
-                : article.date.toLocaleDateString("id-ID")
+                ? new Date(article.createdAt).getFullYear().toString()
+                : new Date(article.createdAt).toLocaleDateString("id-ID")
             }
           />
         </p>
 
         <Image
           ref={ref}
-          src={article.imageHref}
+          src={process.env.CMS_API + data.url}
           sizes="100%"
           width={0}
           height={0}

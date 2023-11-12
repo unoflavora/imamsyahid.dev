@@ -3,6 +3,7 @@ import AnimatedText from "./AnimatedText";
 import ArticleCard, { ArticleData } from "./ArticleCard";
 import React, { ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import { Doc } from "@/app/types/ContentData";
 
 function Article({ children }: { children: ReactNode }) {
   const blogs = config.dummyData.blogs;
@@ -46,7 +47,7 @@ Article.Body = function ArticleBody(
 
 type ItemsProp = {
   rootUrl: string;
-  articles: readonly ArticleData[];
+  articles: Doc[];
 };
 
 Article.Items = function ArticleItems(
@@ -64,7 +65,7 @@ Article.Items = function ArticleItems(
           if (i > 0)
             return (
               <ArticleCard
-                rootUrl={props.rootUrl}
+                rootUrl={blog.slug}
                 key={`blog ` + i}
                 article={blog}
               />

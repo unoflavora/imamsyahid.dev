@@ -14,10 +14,10 @@ export default function Layout({
   return (
     <div className="w-full flex flex-col items-start gap-10 ">
       <Link
-        href="/blogs"
+        href="/projects"
         className="text-argent flex items-center gap-2 hover:text-white transition-colors animate-component-in-up  "
       >
-        <ArrowLeftCircleIcon /> Blog
+        <ArrowLeftCircleIcon /> Projects
       </Link>
 
       {children}

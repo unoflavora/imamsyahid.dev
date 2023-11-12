@@ -7,7 +7,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 
 export default async function Page({ params }: { params: { slug: string } }) {
-  const data = await getContent("blogs");
+  const data = await getContent("projects");
 
   const blog = data.docs.find((b) => b.slug === params.slug);
 
@@ -22,12 +22,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         <h1 className="text-2xl font-semibold text-white">{blog.title}</h1>
       </header>
 
-      <div
-        className={cn(
-          "min-h-[18rem] min-w-full  -ml-5 -mr-5 md:m-0",
-          "animate-jumpIn"
-        )}
-      >
+      <div className={cn("w-full   -ml-5 -mr-5 md:m-0", "animate-jumpIn")}>
         <Image
           src={process.env.CMS_API + blog.headerImage.url}
           sizes="100%"

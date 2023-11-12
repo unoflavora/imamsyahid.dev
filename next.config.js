@@ -28,7 +28,7 @@ const nextConfig = {
     return config;
   },
   images: {
-    domains: ["framerusercontent.com"],
+    domains: ["framerusercontent.com", "localhost"],
   },
   experimental: {
     serverActions: {
