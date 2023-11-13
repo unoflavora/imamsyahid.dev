@@ -7,8 +7,6 @@ import { notFound } from "next/navigation";
 import React from "react";
 import { serialize } from "v8";
 export default async function Page() {
-  const blogs = config.dummyData.blogs;
-
   const data: ContentData = await (
     await fetch(process.env.CMS_API + "/api/projects" + "?depth=1", {
       method: "GET",

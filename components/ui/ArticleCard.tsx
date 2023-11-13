@@ -5,6 +5,7 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import { Doc } from "@/app/types/ContentData";
 import MediaData from "@/app/types/MediaData";
+import ContentImage from "./ContentImage";
 
 type ArticleProp = {
   rootUrl: string;
@@ -54,18 +55,7 @@ const ArticleCard = React.forwardRef<
           />
         </p>
 
-        <Image
-          ref={ref}
-          src={process.env.CMS_API + data.url}
-          sizes="100%"
-          width={0}
-          height={0}
-          alt={`cover image of ${article.title}`}
-          className={cn(
-            "w-full group-hover:brightness-125 transition-all object-cover",
-            props.className
-          )}
-        />
+        <ContentImage image={article.headerImage} className={props.className} />
 
         <h1 className="text-argent text-lg">
           <AnimatedText text={article.title} />

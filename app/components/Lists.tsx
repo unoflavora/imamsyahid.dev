@@ -5,7 +5,12 @@ import Link from "next/link";
 import useTextAnimator from "../../hooks/useTextAnimator";
 import RightArrow from "@/public/arrow-right.svg";
 
-type List = { title: string; subtitle: string; category?: string };
+type List = {
+  title: string;
+  subtitle: string;
+  category?: string;
+  href: string;
+};
 
 type ListsProps = { title: string; href: string; list: List[] };
 
@@ -31,7 +36,7 @@ export default function Lists(props: ListsProps) {
           (l, i) =>
             i <= 2 && (
               <Link
-                href="/"
+                href={l.href}
                 key={props.title + i}
                 className="group flex gap-3 items-end w-full text-argent hover:text-white  transition-colors duration-150"
               >

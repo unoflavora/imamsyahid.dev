@@ -1,7 +1,7 @@
 import MediaData from "./MediaData";
 
 export default interface ContentData {
-  docs: Doc[];
+  docs: Doc[] | ProjectDoc[];
   hasNextPage: boolean;
   hasPrevPage: boolean;
   limit: number;
@@ -22,6 +22,18 @@ export interface Doc {
   updatedAt: string;
   createdAt: string;
   slug: string;
+  category: string;
+}
+
+export interface ProjectDoc extends Doc {
+  slider: Slider[];
+}
+export interface Slider {
+  _order: number;
+  id: string;
+  title: string;
+  caption: string;
+  image: MediaData;
 }
 
 export interface Content {

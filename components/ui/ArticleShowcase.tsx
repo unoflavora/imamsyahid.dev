@@ -53,27 +53,28 @@ type ItemsProp = {
 Article.Items = function ArticleItems(
   props: React.PropsWithChildren<ItemsProp>
 ) {
-  return (
-    <ul className="flex flex-col gap-8 animate-component-in-bottom">
-      <ArticleCard
-        rootUrl={props.rootUrl}
-        className="md:h-96"
-        article={props.articles[0]}
-      />
-      <div className="flex flex-col md:grid md:grid-cols-2 gap-8 ">
-        {props.articles.map((blog, i) => {
-          if (i > 0)
-            return (
-              <ArticleCard
-                rootUrl={blog.slug}
-                key={`blog ` + i}
-                article={blog}
-              />
-            );
-        })}
-      </div>
-    </ul>
-  );
+  if (props.articles.length > 0)
+    return (
+      <ul className="flex flex-col gap-8 animate-component-in-bottom">
+        <ArticleCard
+          rootUrl={props.rootUrl}
+          className="md:h-96"
+          article={props.articles[0]}
+        />
+        <div className="flex flex-col md:grid md:grid-cols-2 gap-8 ">
+          {props.articles.map((blog, i) => {
+            if (i > 0)
+              return (
+                <ArticleCard
+                  rootUrl={blog.slug}
+                  key={`blog ` + i}
+                  article={blog}
+                />
+              );
+          })}
+        </div>
+      </ul>
+    );
 };
 
 export { Article };

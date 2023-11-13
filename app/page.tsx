@@ -4,27 +4,37 @@ import MeDescription from "./components/MeDescription";
 import Products from "./components/Products";
 import Stacks from "./components/Stacks";
 import config from "./config";
+import { getContent } from "./lib/getContent";
 
-export default function Page() {
+export default async function Page() {
   const socials = [
-    { title: "Instagram", subtitle: "Follow" },
-    { title: "Leetcode", subtitle: "Follow" },
-    { title: "X", subtitle: "Follow" },
+    {
+      title: "Github",
+      subtitle: "Follow",
+      href: "https://github.com/unoflavora",
+    },
+    {
+      title: "Instagram",
+      subtitle: "Follow",
+      href: "https://www.instagram.com/",
+    },
   ];
 
-  const projects = [
-    { title: "Voice Scream", category: "Web Games", subtitle: "2022" },
-    { title: "Match Three", category: "Web Games", subtitle: "2023" },
-    { title: "Kanban Mawnagement", category: "Web App", subtitle: "2023" },
-    { title: "Kanban Management", category: "Web App", subtitle: "2023" },
-  ];
+  const projects = (await getContent("projects")).docs.map((doc) => {
+    return {
+      title: doc.title,
+      subtitle: new Date(doc.updatedAt).toLocaleDateString(),
+      href: `/projects/${doc.slug}`,
+    };
+  });
 
-  const writings = [
-    { title: "AI on politics", subtitle: "16/09/2023" },
-    { title: "On code inspiration", subtitle: "16/10/2023" },
-    { title: "Why React is not enough", subtitle: "8/10/2023" },
-    { title: "Kanban Management", subtitle: "2023" },
-  ];
+  const writings = (await getContent("blogs")).docs.map((doc) => {
+    return {
+      title: doc.title,
+      subtitle: new Date(doc.updatedAt).toLocaleDateString(),
+      href: `/blogs/${doc.slug}`,
+    };
+  });
 
   return (
     <main className="flex flex-col gap-10 md:gap-14   ">
