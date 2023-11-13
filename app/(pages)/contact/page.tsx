@@ -4,6 +4,7 @@ import TextSwitcher from "@/components/ui/TextSwitcher";
 import { CalendarIcon, ClockIcon } from "lucide-react";
 import ContactForm from "./form";
 import { headers } from "next/headers";
+import Link from "next/link";
 
 export default function Page() {
   return (
@@ -22,9 +23,11 @@ export default function Page() {
           for new opportunities
         </h3>
 
-        <Button className="text-base md:text-lg items-center">
-          <CalendarIcon className="text-argent md:p-0.5" /> Book a Call
-        </Button>
+        <Link href="https://calendly.com/imamsyahid/30min" target="_blank">
+          <Button className="text-base  items-center">
+            <CalendarIcon className="text-argent md:p-0.5" /> Book a Call
+          </Button>
+        </Link>
       </Article.Header>
 
       <div className="bg-argent/30 w-full h-[0.005rem]" />
