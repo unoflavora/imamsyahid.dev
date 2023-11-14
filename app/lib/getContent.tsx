@@ -13,6 +13,9 @@ export async function getContent(slug: string) {
         "Content-Type": "application/json",
       },
       cache: process.env.NODE_ENV == "development" ? "no-cache" : "default",
+      next: {
+        tags: [slug],
+      },
     })
   ).json()) as ContentData;
 
