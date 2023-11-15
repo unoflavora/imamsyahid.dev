@@ -27,6 +27,5 @@ jobs:
           CMS_API: ${{ secrets.CMS_API }}
         with:
           context: .
-          platforms: linux/amd64,linux/arm64
           push: true
           tags: imamsyahid/dev:latest
