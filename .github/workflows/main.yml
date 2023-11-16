@@ -1,4 +1,4 @@
-name: ci
+name: ci/cd
 
 on:
   push:
@@ -6,7 +6,8 @@ on:
       - "main"
 
 jobs:
-  docker:
+  1:
+    name: Docker Build and Push
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -29,3 +30,19 @@ jobs:
           context: .
           push: true
           tags: imamsyahid/dev:latest
+  2:
+    name: Deploy to https:server.imamsyahid.dev
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://www.imamsyahid.dev
+    steps:
+      - name: deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.PRIVATE_KEY }}
+          port: 22
+          script: |
+            bash cd/imamsyahid.dev.sh
