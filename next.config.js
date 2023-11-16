@@ -28,7 +28,7 @@ const nextConfig = {
     return config;
   },
   images: {
-    domains: ["framerusercontent.com", "localhost"],
+    domains: ["cms.imamsyahid.dev", "localhost"],
   },
   experimental: {
     serverActions: {

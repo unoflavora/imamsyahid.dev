@@ -18,7 +18,7 @@ export default function Lists(props: ListsProps) {
   const title = useTextAnimator(props.title);
 
   return (
-    <div className="flex flex-col gap-5">
+    <div className="w-full max-md:max-w-[90vw] flex flex-col gap-5">
       <div className="flex justify-between w-full">
         <h1 className="text-white font-semibold text-lg">{title}</h1>
 
@@ -31,18 +31,18 @@ export default function Lists(props: ListsProps) {
         )}
       </div>
 
-      <div className="flex flex-col gap-3 text-[.9rem] md:text-base">
+      <div className=" w-full flex flex-col gap-3 text-[.9rem] md:text-base">
         {props.list.map(
           (l, i) =>
             i <= 2 && (
               <Link
                 href={l.href}
                 key={props.title + i}
-                className="group flex gap-3 items-end w-full text-argent hover:text-white  transition-colors duration-150"
+                className="w-full group flex gap-3 items-end    text-argent hover:text-white  transition-colors duration-150"
               >
-                <h1 className="min-w-max ">{l.title}</h1>
-                <div className="w-full h-[.033rem] mb-1.5 bg-[#303030] group-hover:bg-gradient-to-r group-hover:animate-linear-bg from-white to-slate-800 transition-colors" />
-                <div className="min-w-max flex gap-3">
+                <h1 className="truncate">{l.title}</h1>
+                <div className="min-w-[12%] lg:min-w-[20%] flex-grow flex-shrink-0 h-[.033rem] mb-1.5 bg-[#303030] group-hover:bg-gradient-to-r group-hover:animate-linear-bg from-white to-slate-800 transition-colors" />
+                <div className="flex flex-wrap gap-3">
                   <h1>{l.category}</h1>
                   <h2>{l.subtitle}</h2>
                 </div>

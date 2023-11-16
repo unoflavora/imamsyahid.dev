@@ -20,8 +20,8 @@ export default function Products() {
           </h2>
         </Link>
       </div>
-      <h3 className="text-argent italic ">
-        Projects that i think will be useful to people :)
+      <h3 className="-mt-2 text-argent italic text-xs ">
+        Projects that i think will be useful to people xD
       </h3>
 
       <div className="flex flex-col">
