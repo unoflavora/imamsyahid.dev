@@ -23,10 +23,16 @@ export interface Doc {
   createdAt: string;
   slug: string;
   category: string;
+  projectUrl: string;
 }
 
 export interface ProjectDoc extends Doc {
   slider: Slider[];
+  description: string;
+  year: string;
+  duration: string;
+  contribution: string;
+  client: string;
 }
 export interface Slider {
   _order: number;

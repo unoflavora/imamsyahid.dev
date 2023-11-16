@@ -1,4 +1,5 @@
 import config from "@/app/config";
+import { getContent } from "@/app/lib/getContent";
 import { serializeHTML } from "@/app/lib/serializeHTML";
 import ContentData from "@/app/types/ContentData";
 import AnimatedText from "@/components/ui/AnimatedText";
@@ -7,14 +8,7 @@ import { notFound } from "next/navigation";
 import React from "react";
 import { serialize } from "v8";
 export default async function Page() {
-  const data: ContentData = await (
-    await fetch(process.env.CMS_API + "/api/projects" + "?depth=1", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-  ).json();
+  const data: ContentData = await getContent("projects");
 
   if (data.errors) return notFound();
 

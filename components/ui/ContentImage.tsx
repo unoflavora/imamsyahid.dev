@@ -11,6 +11,7 @@ export default function ContentImage(
   } & React.HTMLAttributes<HTMLImageElement>
 ) {
   const { image, renderOnClient } = props;
+  if (image == null) return;
 
   return (
     <Image

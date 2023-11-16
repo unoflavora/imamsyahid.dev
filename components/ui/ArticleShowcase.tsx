@@ -62,16 +62,17 @@ Article.Items = function ArticleItems(
           article={props.articles[0]}
         />
         <div className="flex flex-col md:grid md:grid-cols-2 gap-8 ">
-          {props.articles.map((blog, i) => {
-            if (i > 0)
-              return (
-                <ArticleCard
-                  rootUrl={blog.slug}
-                  key={`blog ` + i}
-                  article={blog}
-                />
-              );
-          })}
+          {props.articles.length > 1 &&
+            props.articles.map((blog, i) => {
+              if (i > 0)
+                return (
+                  <ArticleCard
+                    rootUrl={props.rootUrl}
+                    key={`blog ` + i}
+                    article={blog}
+                  />
+                );
+            })}
         </div>
       </ul>
     );

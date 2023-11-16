@@ -12,7 +12,6 @@ export default function PhotoGallery({
   photos: ProjectDoc["slider"];
 }) {
   const settings = {
-    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -20,7 +19,7 @@ export default function PhotoGallery({
   };
 
   return (
-    <div className={cn("w-full", "animate-jumpIn")}>
+    <div className={cn("w-full overflow-visible ", "animate-jumpIn")}>
       <Slider className="w-full" {...settings}>
         {photos.map((photo) => {
           return (

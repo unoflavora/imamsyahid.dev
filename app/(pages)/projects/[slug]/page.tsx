@@ -1,17 +1,13 @@
-import config from "@/app/config";
 import { getContent } from "@/app/lib/getContent";
 import { serializeHTML } from "@/app/lib/serializeHTML";
 import { ProjectDoc } from "@/app/types/ContentData";
-import MediaData from "@/app/types/MediaData";
-import ContentImage from "@/components/ui/ContentImage";
-import { cn } from "@/lib/utils";
-import Slider from "react-slick";
 import { notFound } from "next/navigation";
 import PhotoGallery from "../components/clientSlider";
+import Button from "@/components/ui/Button";
+import Link from "next/link";
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const data = await getContent("projects");
-
   const project = data.docs.find((b) => b.slug === params.slug) as ProjectDoc;
 
   if (project == null) return notFound();
@@ -25,6 +21,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     };
   });
 
+  // header Image
   photos.unshift({
     _order: 1,
     id: "header",
@@ -37,12 +34,30 @@ export default async function Page({ params }: { params: { slug: string } }) {
   });
 
   return (
-    <div className="relative w-full flex flex-col gap-10">
+    <div className="relative w-full flex flex-col gap-10 ">
       <header className="flex flex-col gap-4 py-4 animate-component-in-up">
-        <h2 className="border border-argent w-fit text-argent font-semibold rounded-lg text-center py-1 px-2 text-sm border-opacity-80 ">
+        <h3 className="border border-argent w-fit text-argent font-semibold rounded-lg text-center py-1 px-2 text-sm border-opacity-80 ">
           {project.category}
-        </h2>
+        </h3>
         <h1 className="text-2xl font-semibold text-white">{project.title}</h1>
+        <h2 className="text-argent">{project.description}</h2>
+        <table className="w-fit text-sm">
+          <tbody>
+            {["client", "contribution", "duration", "year"].map((key) => {
+              let val = key as keyof typeof project;
+              if (typeof project[val] === "string")
+                return (
+                  <tr className="" key={key}>
+                    <td className="capitalize font-semibold pr-5">{key}</td>
+                    <td className="text-argent">{project[val] as string}</td>
+                  </tr>
+                );
+            })}
+          </tbody>
+        </table>
+        <Link href={project.projectUrl} target="_blank">
+          <Button>Visit</Button>
+        </Link>
       </header>
 
       <PhotoGallery photos={photos} />
