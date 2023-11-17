@@ -15,7 +15,7 @@ export default function ContentImage(
 
   return (
     <Image
-      src={renderOnClient ? image.url : process.env.CMS_API + image.url}
+      src={renderOnClient ? image.url : process.env.IMAGE_API + image.url}
       sizes="100%"
       width={0}
       height={0}

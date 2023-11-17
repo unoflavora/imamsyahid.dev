@@ -16,7 +16,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       ...photo,
       image: {
         ...photo["image"],
-        url: process.env.CMS_API + photo.image.url,
+        url: process.env.IMAGE_API + photo.image.url,
       },
     };
   });
@@ -29,7 +29,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     caption: "string",
     image: {
       ...project["headerImage"],
-      url: process.env.CMS_API + project.headerImage.url,
+      url: process.env.IMAGE_API + project.headerImage.url,
     },
   });
 
