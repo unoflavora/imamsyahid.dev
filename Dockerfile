@@ -3,8 +3,10 @@ WORKDIR /app
 COPY ["package.json", "package-lock.json*", "./"]
 RUN npm install
 COPY . .
-RUN npm run build
+ENV CMS_API = "https://cms.imamsyahid.dev"
+ENV IMAGE_API =  "https://cms.imamsyahid.dev"
 
+RUN npm run build
 FROM node:18-alpine as runtime
 WORKDIR /app
 COPY --from=builder /app/package.json .
