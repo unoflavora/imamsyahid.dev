@@ -36,7 +36,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   });
 
   return (
-    <div className="relative w-full flex flex-col gap-10 ">
+    <div className="relative w-full flex flex-col justify-center items-center gap-10 ">
       <header className="flex flex-col gap-4 py-4 animate-component-in-up">
         <h3 className="border border-argent w-fit text-argent font-semibold rounded-lg text-center py-1 px-2 text-sm border-opacity-80 ">
           {project.category}
@@ -64,7 +64,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
       <PhotoGallery photos={photos} />
 
-      <div className="animate-component-in-bottom">
+      <div className="text-argent animate-component-in-bottom flex flex-col gap-3">
         {serializeHTML(project.content)}
       </div>
     </div>

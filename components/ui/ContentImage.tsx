@@ -21,7 +21,7 @@ export default function ContentImage(
       height={0}
       alt={`cover image of ${image.filename}`}
       className={cn(
-        "w-full md:h-96 group-hover:brightness-125 transition-all object-cover",
+        "w-full h-96 group-hover:brightness-125 transition-all object-cover object-top",
         props.className
       )}
     />

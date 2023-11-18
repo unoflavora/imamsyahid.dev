@@ -43,7 +43,14 @@ export const serializeHTML = (children: any[]) =>
       case "blockquote":
         return <blockquote key={i}>{serializeHTML(node.children)}</blockquote>;
       case "ul":
-        return <ul key={i}>{serializeHTML(node.children)}</ul>;
+        return (
+          <ul
+            className="list-disc list-outside text-left	ml-5 flex flex-col gap-1"
+            key={i}
+          >
+            {serializeHTML(node.children)}
+          </ul>
+        );
       case "ol":
         return <ol key={i}>{serializeHTML(node.children)}</ol>;
       case "li":
