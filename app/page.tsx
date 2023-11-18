@@ -5,6 +5,7 @@ import Products from "./components/Products";
 import Stacks from "./components/Stacks";
 import config from "./config";
 import { getContent } from "./lib/getContent";
+import { Doc } from "./types/ContentData";
 
 export default async function Page() {
   const socials = [
@@ -20,21 +21,39 @@ export default async function Page() {
     },
   ];
 
-  const projects = (await getContent("projects")).docs.map((doc) => {
-    return {
-      title: doc.title,
-      subtitle: new Date(doc.updatedAt).toLocaleDateString(),
-      href: `/projects/${doc.slug}`,
-    };
-  });
+  const projectRes = await getContent("projects");
+  var projects: {
+    title: string;
+    subtitle: string;
+    category?: string;
+    href: string;
+  }[] = [];
 
-  const writings = (await getContent("blogs")).docs.map((doc) => {
-    return {
-      title: doc.title,
-      subtitle: new Date(doc.updatedAt).toLocaleDateString(),
-      href: `/blogs/${doc.slug}`,
-    };
-  });
+  const writingsRes = await getContent("blogs");
+  var writings: {
+    title: string;
+    subtitle: string;
+    category?: string;
+    href: string;
+  }[] = [];
+
+  if (projectRes != null)
+    projects = projectRes.docs.map((doc) => {
+      return {
+        title: doc.title,
+        subtitle: new Date(doc.updatedAt).toLocaleDateString(),
+        href: `/projects/${doc.slug}`,
+      };
+    });
+
+  if (writingsRes != null)
+    writings = writingsRes.docs.map((doc) => {
+      return {
+        title: doc.title,
+        subtitle: new Date(doc.updatedAt).toLocaleDateString(),
+        href: `/blogs/${doc.slug}`,
+      };
+    });
 
   return (
     <main className="flex flex-col gap-10 md:gap-14   ">

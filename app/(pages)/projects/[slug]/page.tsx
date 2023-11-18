@@ -8,9 +8,11 @@ import Link from "next/link";
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const data = await getContent("projects");
-  const project = data.docs.find((b) => b.slug === params.slug) as ProjectDoc;
+  if (data == null) return notFound();
 
+  const project = data.docs.find((b) => b.slug === params.slug) as ProjectDoc;
   if (project == null) return notFound();
+
   const photos = project.slider.map((photo) => {
     return {
       ...photo,

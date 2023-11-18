@@ -47,7 +47,7 @@ Article.Body = function ArticleBody(
 
 type ItemsProp = {
   rootUrl: string;
-  articles: Doc[];
+  articles: Doc[] | [];
 };
 
 Article.Items = function ArticleItems(

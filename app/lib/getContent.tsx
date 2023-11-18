@@ -6,8 +6,8 @@ import ContentData from "../types/ContentData";
 export async function getContent(slug: string) {
   const url = process.env.CMS_API + `/api/${slug}/`;
 
-  var res = (await (
-    await fetch(url, {
+  try {
+    var res = await fetch(url, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -15,10 +15,15 @@ export async function getContent(slug: string) {
       next: {
         tags: [slug],
       },
-    })
-  ).json()) as ContentData;
+    });
 
-  if (res == null || res.docs == null) return notFound();
+    var data = (await res.json()) as ContentData;
 
-  return res;
+    if (data == null || data.docs == null) return notFound();
+
+    return data;
+  } catch (e) {
+    console.error(e);
+    return null;
+  }
 }

@@ -10,6 +10,7 @@ import { notFound } from "next/navigation";
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const data = await getContent("blogs");
+  if (data == null) return notFound();
 
   const blog = data.docs.find((b) => b.slug === params.slug) as ProjectDoc;
 
