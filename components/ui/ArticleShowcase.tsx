@@ -67,9 +67,10 @@ Article.Items = function ArticleItems(
               if (i > 0)
                 return (
                   <ArticleCard
-                    rootUrl={props.rootUrl}
                     key={`blog ` + i}
+                    rootUrl={props.rootUrl}
                     article={blog}
+                    className="h-48"
                   />
                 );
             })}
