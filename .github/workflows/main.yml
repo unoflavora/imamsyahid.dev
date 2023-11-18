@@ -6,7 +6,7 @@ on:
       - "main"
 
 jobs:
-  first:
+  build-image:
     name: Docker Build and Push
     runs-on: ubuntu-latest
     steps:
@@ -30,8 +30,9 @@ jobs:
           context: .
           push: true
           tags: imamsyahid/dev:latest
-  second:
+  deployment:
     name: Deploy to https:server.imamsyahid.dev
+    needs: build-image
     runs-on: ubuntu-latest
     environment:
       name: Production
