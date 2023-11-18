@@ -19,8 +19,6 @@ export async function getContent(slug: string) {
 
     var data = (await res.json()) as ContentData;
 
-    if (data == null || data.docs == null) return notFound();
-
     return data;
   } catch (e) {
     console.error(e);
