@@ -11,7 +11,7 @@ export default function Page() {
     <Article>
       <Article.Header title="Stack">
         <AnimatedText text="Things I" />
-        <AnimatedText className="text-white" text="Use" />
+        <AnimatedText className="text-black dark:text-white" text="Use" />
       </Article.Header>
 
       <Article.Body>
@@ -21,7 +21,7 @@ export default function Page() {
               target="_blank"
               href={stack.href}
               key={stack.name}
-              className="p-2 rounded-xl hover:bg-white/[0.04] flex items-center"
+              className="p-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/[0.04] flex items-center"
             >
               <li className="inline-flex gap-2  ">
                 <Image
@@ -33,7 +33,9 @@ export default function Page() {
                   alt={`icon of ${stack.name}`}
                 />
                 <div className="flex flex-col h-full justify-between">
-                  <h1>{stack.name}</h1>
+                  <h1 className="text-black font-medium dark:font-normal dark:text-white">
+                    {stack.name}
+                  </h1>
                   <h2 className="text-sm text-argent">{stack.category}</h2>
                 </div>
               </li>

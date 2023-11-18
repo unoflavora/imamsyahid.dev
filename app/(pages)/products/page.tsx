@@ -7,7 +7,7 @@ export default function Page() {
     <Article>
       <Article.Header title="Products">
         <AnimatedText text="Things I've" />
-        <AnimatedText className="text-white" text="made" />
+        <AnimatedText className="text-black dark:text-white" text="made" />
       </Article.Header>
 
       <Article.Body>

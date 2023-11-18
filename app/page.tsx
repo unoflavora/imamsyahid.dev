@@ -25,11 +25,11 @@ export default async function Page() {
     <main className="flex flex-col gap-10 md:gap-14   ">
       <Me />
 
-      <div className="flex flex-col gap-5 md:gap-20 animate-component-in-bottom">
+      <div className="flex flex-col gap-5 md:gap-14 animate-component-in-bottom">
         <MeDescription />
 
         <div className="flex flex-col gap-10">
-          <div className="w-full md:mb-10">
+          <div className="w-full mb-5 ">
             <Products />
           </div>
 

@@ -36,7 +36,7 @@ export default function PhotoGallery({
               renderOnClient
               key={photo.title}
               image={photo.image}
-              className="h-[20rem] md:h-96 lg:h-[32rem]"
+              className="h-[20rem] md:h-[30rem] lg:h-[32rem]"
             />
           );
         })}

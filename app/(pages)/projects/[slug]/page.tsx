@@ -41,7 +41,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
         <h3 className="border border-argent w-fit text-argent font-semibold rounded-lg text-center py-1 px-2 text-sm border-opacity-80 ">
           {project.category}
         </h3>
-        <h1 className="text-2xl font-semibold text-white">{project.title}</h1>
+        <h1 className="text-2xl font-semibold text-black dark:text-white">
+          {project.title}
+        </h1>
         <h2 className="text-argent">{project.description}</h2>
         <table className="w-fit text-sm">
           <tbody>
@@ -50,7 +52,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
               if (typeof project[val] === "string")
                 return (
                   <tr className="" key={key}>
-                    <td className="capitalize font-semibold pr-5">{key}</td>
+                    <td className="capitalize text-black dark:text-white font-semibold pr-5">
+                      {key}
+                    </td>
                     <td className="text-argent">{project[val] as string}</td>
                   </tr>
                 );

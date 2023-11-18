@@ -1,7 +1,7 @@
 "use client";
 import Button from "@/components/ui/Button";
-import { CheckCircle, Loader2Icon, LoaderIcon } from "lucide-react";
-import { HTMLProps, useEffect, useReducer, useState } from "react";
+import { CheckCircle, Loader2Icon } from "lucide-react";
+import { HTMLAttributes, HTMLProps, useState } from "react";
 import { sendEmail } from "./actions";
 import { cn } from "@/lib/utils";
 
@@ -14,6 +14,9 @@ export default function ContactForm() {
   const [state, formAction] = useFormState(sendEmail, {});
   const [dataSubmitted, setSubmitData] = useState(false);
 
+  const inputClassName: HTMLAttributes<HTMLInputElement>["className"] =
+    "bg-[#ebebeb] dark:bg-white/5 p-2 px-3 placeholder-argent dark:placeholder-white/40 rounded-xl w-full shadow-sm";
+
   return (
     <form action={formAction} className="relative flex flex-col gap-4">
       <Overlay className={`${dataSubmitted ? "flex" : "hidden"}`} />
@@ -23,27 +26,27 @@ export default function ContactForm() {
           name="name"
           type="text"
           placeholder="Name"
-          className="bg-white/5 p-2 px-3 text-white placeholder-white/40 rounded-xl w-full shadow-sm"
+          className={inputClassName}
         />
         <input
           required
           name="email"
           type="email"
           placeholder="Email"
-          className="bg-white/5 p-2 px-3 text-white placeholder-white/40 rounded-xl w-full shadow-sm"
+          className={inputClassName}
         />
       </div>
       <textarea
         required
         name="text"
         placeholder="Message"
-        className="bg-white/5 p-2 px-3 text-white placeholder-white/40 rounded-xl w-full shadow-sm min-h-[10rem]"
+        className={cn(inputClassName, "min-h-[10rem]")}
       />
       <Button
         onClick={() => {
           setSubmitData(true);
         }}
-        className="text-black bg-white w-full flex justify-center hover:text-black hover:bg-white/80"
+        className="text-white dark:text-black bg-black dark:bg-white w-full flex justify-center hover:text-white hover:bg-black/80 dark:hover:text-black dark:hover:bg-white/80"
       >
         Send
       </Button>

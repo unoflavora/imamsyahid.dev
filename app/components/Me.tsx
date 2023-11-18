@@ -19,7 +19,7 @@ export default function Me() {
           />
         </div>
         <div className="flex flex-col">
-          <h1 className="font-semibold text-white">{name}</h1>
+          <h1 className="font-semibold text-black dark:text-white">{name}</h1>
           <h2 className="font-semibold text-zinc-500">B. 1999</h2>
         </div>
       </div>

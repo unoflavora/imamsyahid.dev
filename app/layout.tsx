@@ -25,7 +25,7 @@ export default function RootLayout({
       </head>
 
       <body suppressHydrationWarning={true} className={inter.className}>
-        <div className="flex justify-center text-white min-h-screen bg-[#1E1E1E]">
+        <div className="flex justify-center text-black dark:text-white min-h-screen  dark:bg-[#1E1E1E]">
           <div className="w-full py-6 pb-28 px-5 md:px-0 gap-10 relative md:max-w-xl flex flex-col items-center  ">
             {children}
             <p className="text-sm text-argent self-start">

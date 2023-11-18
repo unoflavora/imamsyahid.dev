@@ -2,7 +2,6 @@ import Link from "next/link";
 import AnimatedText from "./AnimatedText";
 import Image from "next/image";
 import React from "react";
-import { cn } from "@/lib/utils";
 import { Doc } from "@/app/types/ContentData";
 import MediaData from "@/app/types/MediaData";
 import ContentImage from "./ContentImage";

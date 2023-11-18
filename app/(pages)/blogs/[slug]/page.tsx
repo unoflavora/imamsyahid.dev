@@ -22,7 +22,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
         <h2 className="border border-argent w-fit text-argent font-semibold rounded-lg text-center py-1 px-2 text-sm border-opacity-80 ">
           {blog.category}
         </h2>
-        <h1 className="text-2xl font-semibold text-white">{blog.title}</h1>
+        <h1 className="text-2xl font-semibold text-black dark:text-white">
+          {blog.title}
+        </h1>
       </header>
 
       <div
@@ -34,7 +36,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         <ContentImage image={blog.headerImage} />
       </div>
 
-      <div className="animate-component-in-bottom flex flex-col gap-3">
+      <div className="animate-component-in-bottom flex flex-col gap-3 text-argent">
         {serializeHTML(blog.content)}
       </div>
     </div>

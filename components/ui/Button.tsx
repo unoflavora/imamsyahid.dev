@@ -8,7 +8,7 @@ export default function Button(
     <button
       {...props}
       className={cn(
-        "px-4 py-1.5 inline-flex gap-2 bg-[#303030] hover:bg-[#303030]/80 w-fit rounded-lg text-white font-semibold",
+        "px-4 py-1.5 inline-flex gap-2  w-fit rounded-lg transition-colors bg-[#ebebeb] hover:bg-black/20 text-black font-medium dark:font-semibold dark:text-white dark:bg-[#303030] dark:hover:bg-[#303030]/80 ",
         props.className
       )}
     >

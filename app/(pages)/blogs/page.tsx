@@ -12,7 +12,10 @@ export default async function Page() {
     <Article>
       <Article.Header title="Blog">
         <AnimatedText text="A few of my" />
-        <AnimatedText className="text-white" text="words" />
+        <AnimatedText
+          className="text-black font-medium dark:font-normal dark:text-white"
+          text="words"
+        />
       </Article.Header>
 
       <Article.Items articles={data ? data.docs : []} rootUrl="blogs" />

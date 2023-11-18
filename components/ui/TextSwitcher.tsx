@@ -11,7 +11,7 @@ export default function TextSwitcher(props: { texts: string[] }) {
           skill === props.texts[currentIndex] && (
             <span
               key={"skill " + i}
-              className={`font-normal text-white ${
+              className={`font-semibold text-black dark:text-white dark:font-normal ${
                 transitionOut ? "animate-text-out" : "animate-text-in"
               } ml-2 absolute`}
             >

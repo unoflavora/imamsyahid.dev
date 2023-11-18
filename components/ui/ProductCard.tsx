@@ -9,7 +9,7 @@ export default function Product(props: {
   var title = useTextAnimator(props.title);
 
   return (
-    <div className="w-full flex items-center justify-between text-white hover:bg-zinc-800 transition-colors duration-200 px-2 py-4 rounded-2xl">
+    <div className="w-full flex items-center justify-between text-black hover:bg-black/5 dark:text-white dark:hover:bg-zinc-800 transition-colors duration-200 px-2 py-4 rounded-2xl">
       <div className="flex gap-3">
         <div className="w-10 h-10 rounded-full bg-argent" />
         <div className="flex flex-col">
