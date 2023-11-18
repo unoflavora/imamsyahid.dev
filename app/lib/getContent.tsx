@@ -16,9 +16,12 @@ export async function getContent(slug: string) {
       },
     });
 
-    return (await res.json()) as ContentData;
-  } catch (e) {
-    console.log(e);
-    return null;
+    var data = (await res.json()) as ContentData;
+
+    if (data != null && data.errors) throw new Error(data.errors[0].message);
+
+    return data;
+  } catch (e: any) {
+    throw new Error(e);
   }
 }

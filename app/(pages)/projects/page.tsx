@@ -7,10 +7,6 @@ import React from "react";
 export default async function Page() {
   const data: ContentData | null = await getContent("projects");
 
-  if (data != null && data.errors) {
-    console.log(data.errors);
-    data.docs = [];
-  }
   return (
     <Article>
       <Article.Header title="Projects">

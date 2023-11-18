@@ -4,9 +4,6 @@ import Me from "./components/Me";
 import MeDescription from "./components/MeDescription";
 import Products from "./components/Products";
 import Stacks from "./components/Stacks";
-import config from "./config";
-import { getContent } from "./lib/getContent";
-import { Doc } from "./types/ContentData";
 
 export default async function Page() {
   const socials = [
