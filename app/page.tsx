@@ -29,9 +29,9 @@ export default async function Page() {
         <MeDescription />
 
         <div className="flex flex-col gap-10">
-          <div className="w-full mb-5 ">
+          {/* <div className="w-full mb-5 ">
             <Products />
-          </div>
+          </div> */}
 
           <Lists href="/findme" title="Where" list={socials} />
 
