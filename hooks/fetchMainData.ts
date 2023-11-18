@@ -22,6 +22,7 @@ export async function fetchMainData() {
       return {
         title: doc.title,
         subtitle: new Date(doc.updatedAt).toLocaleDateString(),
+        category: doc.category,
         href: `/projects/${doc.slug}`,
       };
     });
