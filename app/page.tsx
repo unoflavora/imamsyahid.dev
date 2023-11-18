@@ -1,3 +1,4 @@
+import { fetchMainData } from "@/hooks/fetchMainData";
 import Lists from "./components/Lists";
 import Me from "./components/Me";
 import MeDescription from "./components/MeDescription";
@@ -21,39 +22,7 @@ export default async function Page() {
     },
   ];
 
-  const projectRes = await getContent("projects");
-  var projects: {
-    title: string;
-    subtitle: string;
-    category?: string;
-    href: string;
-  }[] = [];
-
-  const writingsRes = await getContent("blogs");
-  var writings: {
-    title: string;
-    subtitle: string;
-    category?: string;
-    href: string;
-  }[] = [];
-
-  if (projectRes != null)
-    projects = projectRes.docs.map((doc) => {
-      return {
-        title: doc.title,
-        subtitle: new Date(doc.updatedAt).toLocaleDateString(),
-        href: `/projects/${doc.slug}`,
-      };
-    });
-
-  if (writingsRes != null)
-    writings = writingsRes.docs.map((doc) => {
-      return {
-        title: doc.title,
-        subtitle: new Date(doc.updatedAt).toLocaleDateString(),
-        href: `/blogs/${doc.slug}`,
-      };
-    });
+  const { projects, writings } = await fetchMainData();
 
   return (
     <main className="flex flex-col gap-10 md:gap-14   ">

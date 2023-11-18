@@ -8,7 +8,10 @@ import React from "react";
 export default async function Page() {
   const data = await getContent("blogs");
 
-  if (data != null && data.errors) throw new Error(data.errors[0].message);
+  if (data != null && data.errors) {
+    console.log(data.errors);
+    data.docs = [];
+  }
 
   return (
     <Article>

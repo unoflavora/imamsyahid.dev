@@ -1,6 +1,5 @@
 "use server";
 
-import { notFound } from "next/navigation";
 import ContentData from "../types/ContentData";
 
 export async function getContent(slug: string) {
@@ -17,11 +16,9 @@ export async function getContent(slug: string) {
       },
     });
 
-    var data = (await res.json()) as ContentData;
-
-    return data;
+    return (await res.json()) as ContentData;
   } catch (e) {
-    console.error(e);
+    console.log(e);
     return null;
   }
 }
