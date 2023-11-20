@@ -18,4 +18,4 @@ COPY --from=builder /app/.next ./.next
 
 EXPOSE 3000
 ENTRYPOINT ["/bin/sh", "-c"]
-CMD ["npm", "run", "start"]
+CMD ["npm run start"]
