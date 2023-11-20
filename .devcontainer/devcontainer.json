@@ -8,27 +8,30 @@
     // Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
     "dockerfile": ".dev.Dockerfile",
   },
-
+  "workspaceFolder": "/usr/app",
   // Features to add to thdev container. More info: https://containers.dev/features.
   // "features": {},
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   "forwardPorts": [3000],
-  "runArgs": ["--name", "imamsyahid.dev_dev", "-p", "3000:3000", "--network=cms_devcontainer_default"],
+  "runArgs": ["--name", "imamsyahid.dev_dev", "-p", "3000:3000", "--network=cmsimamsyahiddev_devcontainer_default"],
 
   // Uncomment the next line to run commands after the container is created.
   "postCreateCommand": "npm run dev",
   "postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
   "mounts": [
-    "source=${localEnv:HOME}${localEnv:USERPROFILE}/projects/personal-web/app,target=/usr/app,type=bind,consistency=cached",
-    "source=${localWorkspaceFolder}/app-data,target=/data,type=bind,consistency=cached",
     "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=cached",
-
   ],
   // Configure tool-specific properties.
   "customizations": {
     "vscode": {
-      "extensions": ["esbenp.prettier-vscode"]
+      "extensions": [
+		"esbenp.prettier-vscode",
+		"bradlc.vscode-tailwindcss",
+		"github.vscode-github-actions",
+		"mhutchie.git-graph",
+    "PKief.material-icon-theme"
+	]
     }
   }
   // Uncomment to connect as an existing user other than the container default. More info: https://aka.ms/dev-containers-non-root.

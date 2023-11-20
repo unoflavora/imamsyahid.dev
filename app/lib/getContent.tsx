@@ -3,6 +3,7 @@
 import ContentData from "../types/ContentData";
 
 export async function getContent(slug: string) {
+  console.log(process.env.CMS_API)
   const url = process.env.CMS_API + `/api/${slug}/`;
 
   try {
@@ -22,6 +23,7 @@ export async function getContent(slug: string) {
 
     return data;
   } catch (e: any) {
+    console.log(e)
     throw new Error(e);
   }
 }
