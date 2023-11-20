@@ -41,7 +41,7 @@ export default function Navbar() {
               >
                 <Icon />
               </div>
-              <span className="absolute hidden bg-argent py-1 px-3 rounded-full -top-[60%] [@media(any-hover:hover)]:group-hover:bounce-fade-in capitalize ">
+              <span className="absolute hidden bg-black dark:bg-argent text-white py-1 px-3 rounded-full -top-[60%] [@media(any-hover:hover)]:group-hover:bounce-fade-in capitalize ">
                 {page}
               </span>
             </Link>
