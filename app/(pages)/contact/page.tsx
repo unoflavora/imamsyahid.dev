@@ -5,7 +5,11 @@ import { CalendarIcon, ClockIcon } from "lucide-react";
 import ContactForm from "./form";
 import { headers } from "next/headers";
 import Link from "next/link";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Contact"
+}
 export default function Page() {
   return (
     <Article>

@@ -2,8 +2,14 @@ import { getContent } from "@/app/lib/getContent";
 import ContentData from "@/app/types/ContentData";
 import AnimatedText from "@/components/ui/AnimatedText";
 import { Article } from "@/components/ui/ArticleShowcase";
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "Projects"
+}
+
 export default async function Page() {
   const data: ContentData | null = await getContent("projects");
 

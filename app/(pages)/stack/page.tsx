@@ -1,8 +1,13 @@
 import config from "@/app/config";
 import AnimatedText from "@/components/ui/AnimatedText";
 import { Article } from "@/components/ui/ArticleShowcase";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Stacks"
+}
 
 export default function Page() {
   const { stacks } = config;
