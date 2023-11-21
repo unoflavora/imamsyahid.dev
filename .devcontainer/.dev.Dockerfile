@@ -8,6 +8,4 @@ COPY package*.json .
 RUN npm install
 COPY . .
 ENTRYPOINT [ "/bin/sh", "-c" ]
-ENV IMAGE_API='http://cmsimamsyahiddev_devcontainer-cms-1:3001'
-ENV CMS_API='http://cmsimamsyahiddev_devcontainer-cms-1:3001'
 CMD ["npm", "run", "dev"]

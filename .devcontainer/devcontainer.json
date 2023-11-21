@@ -9,8 +9,6 @@
     "dockerfile": ".dev.Dockerfile",
   },
   "workspaceFolder": "/usr/app",
-  // Features to add to thdev container. More info: https://containers.dev/features.
-  // "features": {},
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   "forwardPorts": [3000],
