@@ -70,7 +70,7 @@ Article.Items = function ArticleItems(
                     key={`blog ` + i}
                     rootUrl={props.rootUrl}
                     article={blog}
-                    className="h-48"
+                    className="md:h-48 "
                   />
                 );
             })}

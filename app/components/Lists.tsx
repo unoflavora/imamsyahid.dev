@@ -44,7 +44,7 @@ export default function Lists(props: ListsProps) {
               >
                 <h1 className="truncate">{l.title}</h1>
                 <div className="min-w-[12%] lg:min-w-[20%] flex-grow flex-shrink-0 h-[.033rem] mb-1.5 bg-black/5 from-black to-white dark:bg-[#303030] group-hover:bg-gradient-to-r group-hover:animate-linear-bg dark:from-white dark:to-slate-800 transition-colors" />
-                <div className="flex flex-wrap gap-3">
+                <div className="min-w-fit flex flex-wrap gap-3">
                   <h1>{l.category}</h1>
                   <h2>{l.subtitle}</h2>
                 </div>
