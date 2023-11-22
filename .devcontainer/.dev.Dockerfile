@@ -8,4 +8,4 @@ COPY package*.json .
 RUN npm install
 COPY . .
 ENTRYPOINT [ "/bin/sh", "-c" ]
-CMD ["npm", "run", "dev"]
+CMD ["npm run dev"]

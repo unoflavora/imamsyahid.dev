@@ -4,11 +4,13 @@ import React, { useEffect, useState } from "react";
 import Icons from "@/public/nav";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { MoonIcon, SunIcon } from "lucide-react";
 
 const pages = ["home", "blogs", "projects", "stack", "contact"];
 
 export default function Navbar() {
   const [selected, setSelected] = useState(pages[0]);
+  const [darkMode, enableDarkMode] = useState<boolean>(true);
   const pathName = usePathname();
 
   useEffect(() => {
@@ -18,8 +20,18 @@ export default function Navbar() {
     else setSelected(path);
   }, [pathName]);
 
+  useEffect(() => {
+    var html = document.getElementById("html");
+    console.log(html?.classList, darkMode);
+    if (darkMode) {
+      html?.classList.add("dark");
+    } else {
+      html?.classList.remove("dark");
+    }
+  }, [darkMode]);
+
   return (
-    <div className="fixed bottom-4 w-full md:max-w-[24rem] px-3 py-2 md:px-0 md:bottom-4   ">
+    <div className="fixed bottom-4 w-full md:max-w-[24rem] px-3 py-2 md:px-0 md:bottom-4 ">
       <div className="flex justify-between gap-4 bg-white dark:bg-[#2F2F2F] backdrop-blur-xl rounded-full shadow-2xl py-2 px-4">
         {pages.map((page, i) => {
           let Icon = (Icons as any)[page];
@@ -47,6 +59,14 @@ export default function Navbar() {
             </Link>
           );
         })}
+        <button
+          onClick={() => {
+            enableDarkMode(!darkMode);
+          }}
+          className="flex justify-center items-center"
+        >
+          {darkMode ? <SunIcon className="fill-white" /> : <MoonIcon />}
+        </button>
       </div>
     </div>
   );
