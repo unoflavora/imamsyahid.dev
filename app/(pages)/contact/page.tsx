@@ -1,15 +1,15 @@
 import { Article } from "@/components/ui/ArticleShowcase";
 import Button from "@/components/ui/Button";
 import TextSwitcher from "@/components/ui/TextSwitcher";
-import { CalendarIcon, ClockIcon } from "lucide-react";
+import { CalendarIcon, ClockIcon, PaperclipIcon } from "lucide-react";
 import ContactForm from "./form";
 import { headers } from "next/headers";
 import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact"
-}
+  title: "Contact",
+};
 export default function Page() {
   return (
     <Article>
@@ -27,11 +27,23 @@ export default function Page() {
           for new opportunities
         </h3>
 
-        <Link href="https://calendly.com/imamsyahid/30min" target="_blank">
-          <Button className="text-base  items-center">
-            <CalendarIcon className="text-argent md:p-0.5" /> Book a Call
-          </Button>
-        </Link>
+        <div className="flex gap-5">
+          <Link href="https://calendly.com/imamsyahid/30min" target="_blank">
+            <Button className="text-base  items-center">
+              <CalendarIcon className="text-argent md:p-0.5" /> Book a Call
+            </Button>
+          </Link>
+
+          <Link
+            href="https://drive.google.com/file/d/1MS2fnY9JOKRRqBuKIFJHB9i0DsQmx6Oa/view?usp=sharing"
+            target="_blank"
+          >
+            <Button className="text-base  items-center">
+              <PaperclipIcon className="text-argent md:p-0.5" />
+              View My CV
+            </Button>
+          </Link>
+        </div>
       </Article.Header>
 
       <div className="bg-argent/30 w-full h-[0.005rem]" />
