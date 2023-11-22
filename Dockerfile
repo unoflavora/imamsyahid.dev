@@ -5,7 +5,7 @@ RUN npm install
 COPY . .
 ENV CMS_API=https://cms.imamsyahid.dev
 RUN npm run build
-RUN npm run site-map
+RUN npm run sitemap
 
 FROM node:18-alpine as runtime
 WORKDIR /app
