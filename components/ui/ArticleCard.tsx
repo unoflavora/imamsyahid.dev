@@ -29,7 +29,7 @@ const ArticleCard = React.forwardRef<
   const { article, config } = props;
 
   const res = await fetch(
-    process.env.IMAGE_API + `/api/media/${article.headerImage.id}`
+    process.env.CMS_API + `/api/media/${article.headerImage.id}`
   );
   const data: MediaData = await res.json();
   if (data.errors != null) {

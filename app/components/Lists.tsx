@@ -12,7 +12,7 @@ type List = {
   href: string;
 };
 
-type ListsProps = { title: string; href: string; list: List[] };
+type ListsProps = { title: string; href: string; list: List[], targetBlank?: boolean };
 
 export default function Lists(props: ListsProps) {
   const title = useTextAnimator(props.title);
@@ -38,6 +38,7 @@ export default function Lists(props: ListsProps) {
           (l, i) =>
             i <= 2 && (
               <Link
+                target={props.targetBlank ? "_blank" : "_parent"}
                 href={l.href}
                 key={props.title + i}
                 className="w-full group flex gap-3 items-end    text-argent hover:text-black hover:font-medium dark:hover:text-white  transition-colors duration-150"

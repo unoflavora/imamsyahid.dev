@@ -4,7 +4,6 @@ COPY ["package.json", "package-lock.json*", "./"]
 RUN npm install
 COPY . .
 ENV CMS_API=https://cms.imamsyahid.dev
-ENV IMAGE_API=https://cms.imamsyahid.dev
 RUN npm run build
 FROM node:18-alpine as runtime
 

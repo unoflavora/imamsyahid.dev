@@ -109,6 +109,23 @@ const config = {
     email: "",
     message: "",
   },
+  socials: [
+    {
+      title: "Github",
+      subtitle: "Follow",
+      href: "https://github.com/unoflavora",
+    },
+    {
+      title: "LinkedIn",
+      subtitle: "Follow",
+      href: "https://www.linkedin.com/in/imamsyahidh/"
+    },
+    {
+      title: "Instagram",
+      subtitle: "Follow",
+      href: "https://www.instagram.com/imamsyahid_/",
+    },
+  ]
 };
 
 export default config;

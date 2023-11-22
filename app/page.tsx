@@ -4,23 +4,12 @@ import Me from "./components/Me";
 import MeDescription from "./components/MeDescription";
 import Products from "./components/Products";
 import Stacks from "./components/Stacks";
+import config from "./config";
 
 export default async function Page() {
-  const socials = [
-    {
-      title: "Github",
-      subtitle: "Follow",
-      href: "https://github.com/unoflavora",
-    },
-    {
-      title: "Instagram",
-      subtitle: "Follow",
-      href: "https://www.instagram.com/",
-    },
-  ];
 
   const { projects, writings } = await fetchMainData();
-
+  const {socials} = config;
   return (
     <main className="flex flex-col gap-10 md:gap-14   ">
       <Me />
@@ -33,7 +22,7 @@ export default async function Page() {
             <Products />
           </div> */}
 
-          <Lists href="/findme" title="Where" list={socials} />
+          <Lists href="/findme" title="Where" list={socials} targetBlank />
 
           <Lists href="/projects" title="Projects" list={projects} />
 
