@@ -1,6 +1,6 @@
 import config from "@/app/config";
 import AnimatedText from "./AnimatedText";
-import ArticleCard, { ArticleData } from "./ArticleCard";
+import ArticleCard, { ArticleCardConfig } from "./ArticleCard";
 import React, { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { Doc } from "@/app/types/ContentData";
@@ -48,6 +48,7 @@ Article.Body = function ArticleBody(
 type ItemsProp = {
   rootUrl: string;
   articles: Doc[] | [];
+  config: ArticleCardConfig;
 };
 
 Article.Items = function ArticleItems(
@@ -60,6 +61,7 @@ Article.Items = function ArticleItems(
           rootUrl={props.rootUrl}
           className="md:h-96"
           article={props.articles[0]}
+          config={{ ...props.config }}
         />
         <div className="flex flex-col md:grid md:grid-cols-2 gap-8 ">
           {props.articles.length > 1 &&
@@ -71,6 +73,7 @@ Article.Items = function ArticleItems(
                     rootUrl={props.rootUrl}
                     article={blog}
                     className="md:h-48 "
+                    config={{ ...props.config }}
                   />
                 );
             })}
