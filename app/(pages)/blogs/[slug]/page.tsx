@@ -3,18 +3,44 @@ import { getContent } from "@/app/lib/getContent";
 import { serializeHTML } from "@/app/lib/serializeHTML";
 import { ProjectDoc } from "@/app/types/ContentData";
 import MediaData from "@/app/types/MediaData";
+import Props from "@/app/types/Props";
 import ContentImage from "@/components/ui/ContentImage";
 import { cn } from "@/lib/utils";
+import { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
-export default async function Page({ params }: { params: { slug: string } }) {
+const fetchData = async (slug: string) => {
   const data = await getContent("blogs");
   if (data == null) return notFound();
 
-  const blog = data.docs.find((b) => b.slug === params.slug) as ProjectDoc;
+  const blog = data.docs.find((b) => b.slug === slug) as ProjectDoc;
 
   if (blog == null) return notFound();
+
+  return blog;
+};
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const blog = await fetchData(params.slug);
+
+  // optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent).openGraph?.images || [];
+
+  return {
+    title: blog.title,
+    description: blog.description,
+    openGraph: {
+      images: [process.env.CMS_API + blog.headerImage.url, ...previousImages],
+    },
+  };
+}
+
+export default async function Page({ params }: { params: { slug: string } }) {
+  const blog = await fetchData(params.slug);
 
   return (
     <div className="w-full flex flex-col gap-10">
