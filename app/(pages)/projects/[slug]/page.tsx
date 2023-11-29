@@ -61,9 +61,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
             })}
           </tbody>
         </table>
-        <Link href={project.projectUrl} target="_blank">
-          <Button>Visit</Button>
-        </Link>
+        {project.projectUrl !== "/" && (
+          <Link href={project.projectUrl} target="_blank">
+            <Button>Visit</Button>
+          </Link>
+        )}
       </header>
 
       <PhotoGallery photos={photos} />
