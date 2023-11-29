@@ -13,18 +13,13 @@ export const metadata: Metadata = {
     template: "%s | Imam Syahid - Fullstack Engineer",
   },
   description: "Imam Syahid Hudzaifah's Personal Portofolio Page",
-  metadataBase: new URL("https://www.imamsyahid.dev"),
   openGraph: {
-    title: "Imam Syahid - Fullstack Engineer",
-    description: "Imam Syahid Hudzaifah's Personal Portofolio Page",
     url: "https://www.imamsyahid.dev",
     type: "website",
     locale: "en-US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Imam Syahid - Fullstack Engineer",
-    description: "Imam Syahid Hudzaifah's Personal Portofolio Page",
     creator: "@imamsyahid_",
   },
 };
