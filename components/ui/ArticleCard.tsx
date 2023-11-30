@@ -32,7 +32,7 @@ const ArticleCard = React.forwardRef<
     throw new Error(data.errors.message);
   }
 
-  const base64 = await getBase64(process.env.CMS_API + article.headerImage.url);
+  const base64 = await getBase64(article.headerImage.url);
 
   return (
     <Link

@@ -15,9 +15,7 @@ export default function ContentImage(
 ) {
   const { image, config } = props;
 
-  const src = config.renderOnClient
-    ? image.url
-    : process.env.CMS_API + image.url;
+  const src = image.url;
 
   if (image == null) return;
 
