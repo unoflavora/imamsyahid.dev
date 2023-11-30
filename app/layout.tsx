@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Navbar from "./layout/Navbar";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,6 +34,18 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon" />
         <link rel="shortcut icon" href="/favicon.ico?v=2" type="image/x-icon" />
       </head>
+
+      {/* Google tag (gtag.js) */}
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-LQNBDE9WQ0" />
+      <Script id="google-analytics">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+ 
+          gtag('config', 'G-LQNBDE9WQ0');
+        `}
+      </Script>
 
       <body suppressHydrationWarning={true} className={inter.className}>
         <div className="transition-colors flex justify-center text-black dark:text-white min-h-screen  dark:bg-[#1E1E1E]">
