@@ -7,15 +7,25 @@ import React from "react";
 export default function ContentImage(
   props: {
     image: MediaData;
-    renderOnClient?: boolean;
+    config: {
+      renderOnClient?: boolean;
+      base64?: string;
+    };
   } & React.HTMLAttributes<HTMLImageElement>
 ) {
-  const { image, renderOnClient } = props;
+  const { image, config } = props;
+
+  const src = config.renderOnClient
+    ? image.url
+    : process.env.CMS_API + image.url;
+
   if (image == null) return;
 
   return (
     <Image
-      src={renderOnClient ? image.url : process.env.CMS_API + image.url}
+      placeholder={config.renderOnClient ? "empty" : "blur"}
+      blurDataURL={config.base64}
+      src={src}
       sizes="100%"
       width={0}
       height={0}

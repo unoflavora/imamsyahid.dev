@@ -5,12 +5,14 @@ import { notFound } from "next/navigation";
 import PhotoGallery from "../components/clientSlider";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
+import { Metadata, ResolvingMetadata } from "next";
+import Props from "@/app/types/Props";
 
-export default async function Page({ params }: { params: { slug: string } }) {
+const fetchData = async (slug: string) => {
   const data = await getContent("projects");
   if (data == null) return notFound();
 
-  const project = data.docs.find((b) => b.slug === params.slug) as ProjectDoc;
+  const project = data.docs.find((b) => b.slug === slug) as ProjectDoc;
   if (project == null) return notFound();
 
   const photos = project.slider.map((photo) => {
@@ -22,6 +24,35 @@ export default async function Page({ params }: { params: { slug: string } }) {
       },
     };
   });
+
+  return { photos, project };
+};
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const { project } = await fetchData(params.slug);
+
+  // optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent).openGraph?.images || [];
+
+  return {
+    title: project.title,
+    description: project.description,
+    metadataBase: new URL(process.env.CMS_API ?? ""),
+    openGraph: {
+      images: [project.headerImage.url, ...previousImages],
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: [project.headerImage.url, ...previousImages],
+    },
+  };
+}
+
+export default async function Page({ params }: Props) {
+  const { photos, project } = await fetchData(params.slug);
 
   // header Image
   photos.unshift({
@@ -61,9 +92,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
             })}
           </tbody>
         </table>
-        <Link href={project.projectUrl} target="_blank">
-          <Button>Visit</Button>
-        </Link>
+        {project.projectUrl !== "/" && (
+          <Link href={project.projectUrl} target="_blank">
+            <Button>Visit</Button>
+          </Link>
+        )}
       </header>
 
       <PhotoGallery photos={photos} />

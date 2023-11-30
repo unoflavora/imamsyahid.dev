@@ -12,13 +12,18 @@ type List = {
   href: string;
 };
 
-type ListsProps = { title: string; href: string; list: List[], targetBlank?: boolean };
+type ListsProps = {
+  title: string;
+  href: string;
+  list: List[];
+  targetBlank?: boolean;
+};
 
 export default function Lists(props: ListsProps) {
   const title = useTextAnimator(props.title);
 
   return (
-    <div className="w-full max-md:max-w-[90vw] flex flex-col gap-5">
+    <div className="w-full  flex flex-col gap-5">
       <div className="flex justify-between w-full">
         <h1 className="text-black dark:text-white font-semibold text-lg">
           {title}
@@ -43,7 +48,7 @@ export default function Lists(props: ListsProps) {
                 key={props.title + i}
                 className="w-full group flex gap-3 items-end    text-argent hover:text-black hover:font-medium dark:hover:text-white  transition-colors duration-150"
               >
-                <h1 className="truncate">{l.title}</h1>
+                <h1 className="max-w-xs truncate">{l.title}</h1>
                 <div className="min-w-[12%] lg:min-w-[20%] flex-grow flex-shrink-0 h-[.033rem] mb-1.5 bg-black/5 from-black to-white dark:bg-[#303030] group-hover:bg-gradient-to-r group-hover:animate-linear-bg dark:from-white dark:to-slate-800 transition-colors" />
                 <div className="min-w-fit flex flex-wrap gap-3">
                   <h1>{l.category}</h1>

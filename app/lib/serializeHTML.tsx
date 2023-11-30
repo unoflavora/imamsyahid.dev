@@ -3,9 +3,10 @@ import escapeHTML from "escape-html";
 import { Text } from "slate";
 import MediaData from "../types/MediaData";
 import ContentImage from "@/components/ui/ContentImage";
+import getBase64 from "./getBase64";
 
 export const serializeHTML = (children: any[]) =>
-  children.map((node: { [key: string]: any }, i) => {
+  children.map(async (node: { [key: string]: any }, i) => {
     if (Text.isText(node)) {
       node = node as any;
 
@@ -57,7 +58,9 @@ export const serializeHTML = (children: any[]) =>
         return <li key={i}>{serializeHTML(node.children)}</li>;
       case "upload":
         var { value } = node as { value: MediaData };
-        return <ContentImage image={value} />;
+        const base64 = await getBase64(process.env.CMS_API + value.url);
+
+        return <ContentImage config={{ base64 }} image={value} />;
       case "link":
         return (
           <a href={escapeHTML(node.url)} key={i}>

@@ -22,7 +22,7 @@ export async function getContent(slug: string) {
 
     return data;
   } catch (e: any) {
-    console.log(e)
+    console.error(e);
     throw new Error(e);
   }
 }

@@ -1,20 +1,54 @@
 import config from "@/app/config";
+import getBase64 from "@/app/lib/getBase64";
 import { getContent } from "@/app/lib/getContent";
 import { serializeHTML } from "@/app/lib/serializeHTML";
 import { ProjectDoc } from "@/app/types/ContentData";
 import MediaData from "@/app/types/MediaData";
+import Props from "@/app/types/Props";
 import ContentImage from "@/components/ui/ContentImage";
 import { cn } from "@/lib/utils";
+import { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
-export default async function Page({ params }: { params: { slug: string } }) {
+const fetchData = async (slug: string) => {
   const data = await getContent("blogs");
   if (data == null) return notFound();
 
-  const blog = data.docs.find((b) => b.slug === params.slug) as ProjectDoc;
+  const blog = data.docs.find((b) => b.slug === slug) as ProjectDoc;
 
   if (blog == null) return notFound();
+
+  return blog;
+};
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const blog = await fetchData(params.slug);
+
+  // optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent).openGraph?.images || [];
+
+  return {
+    title: blog.title,
+    description: blog.description,
+    metadataBase: new URL(process.env.CMS_API ?? ""),
+    openGraph: {
+      images: [blog.headerImage.url, ...previousImages],
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: [blog.headerImage.url, ...previousImages],
+    },
+  };
+}
+
+export default async function Page({ params }: { params: { slug: string } }) {
+  const blog = await fetchData(params.slug);
+
+  const base64 = await getBase64(process.env.CMS_API + blog.headerImage.url);
 
   return (
     <div className="w-full flex flex-col gap-10">
@@ -33,7 +67,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           "animate-jumpIn"
         )}
       >
-        <ContentImage image={blog.headerImage} />
+        <ContentImage config={{ base64 }} image={blog.headerImage} />
       </div>
 
       <div className="animate-component-in-bottom flex flex-col gap-3 text-argent">
