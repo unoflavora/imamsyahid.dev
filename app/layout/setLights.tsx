@@ -17,6 +17,7 @@ export default function SetLight() {
 
   return (
     <button
+      aria-label="switch lightning mode"
       onClick={() => {
         enableDarkMode(!darkMode);
       }}
