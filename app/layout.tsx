@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     template: "%s | Imam Syahid - Fullstack Engineer",
   },
   description: "Imam Syahid Hudzaifah's Personal Portofolio Page",
+  metadataBase: new URL("https://www.imamsyahid.dev"),
   openGraph: {
     url: "https://www.imamsyahid.dev",
     type: "website",
