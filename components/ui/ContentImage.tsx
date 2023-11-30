@@ -15,6 +15,7 @@ export default function ContentImage(
 
   return (
     <Image
+      placeholder="blur"
       src={renderOnClient ? image.url : process.env.CMS_API + image.url}
       sizes="100%"
       width={0}
