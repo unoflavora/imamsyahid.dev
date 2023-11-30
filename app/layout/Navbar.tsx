@@ -28,6 +28,7 @@ export default function Navbar({ currentPath }: { currentPath: string }) {
 
           return (
             <Link
+              aria-label={"click to navigate to: " + page}
               href={page === "home" ? "/" : `/${page}`}
               key={"item-icon " + page}
               className={`p-1.5 w-10 h-fit  flex justify-center items-center ${
