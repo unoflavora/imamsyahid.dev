@@ -48,7 +48,7 @@ Article.Body = function ArticleBody(
 type ItemsProp = {
   rootUrl: string;
   articles: Doc[] | [];
-  config: ArticleCardConfig;
+  config?: ArticleCardConfig;
 };
 
 Article.Items = function ArticleItems(
@@ -61,7 +61,7 @@ Article.Items = function ArticleItems(
           rootUrl={props.rootUrl}
           className="md:h-96"
           article={props.articles[0]}
-          config={{ ...props.config }}
+          config={props.config && { ...props.config }}
         />
         <div className="flex flex-col md:grid md:grid-cols-2 gap-8 ">
           {props.articles.length > 1 &&
@@ -73,7 +73,7 @@ Article.Items = function ArticleItems(
                     rootUrl={props.rootUrl}
                     article={blog}
                     className="md:h-48 "
-                    config={{ ...props.config }}
+                    config={props.config && { ...props.config }}
                   />
                 );
             })}
