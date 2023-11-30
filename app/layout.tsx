@@ -10,8 +10,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: "Imam Syahid - Fullstack Engineer",
-    template: "%s | Imam Syahid - Fullstack Engineer",
+    default: "Imam Syahid Hudzaifah - Fullstack Engineer",
+    template: "%s | Imam Syahid Hudzaifah",
   },
   description: "Imam Syahid Hudzaifah's Personal Portofolio Page",
   metadataBase: new URL("https://www.imamsyahid.dev"),
