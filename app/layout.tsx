@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import Navbar from "./layout/Navbar";
 import Script from "next/script";
 import { headers } from "next/headers";
+import { GoogleAnalytics } from "nextjs-google-analytics";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -41,8 +42,11 @@ export default function RootLayout({
       </head>
 
       {/* Google tag (gtag.js) */}
-      <Script src="https://www.googletagmanager.com/gtag/js?id=G-LQNBDE9WQ0" />
-      <Script id="google-analytics">
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-LQNBDE9WQ0"
+        strategy="lazyOnload"
+      />
+      <Script id="google-analytics" strategy="lazyOnload">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
