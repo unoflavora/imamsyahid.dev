@@ -40,7 +40,7 @@ export async function generateMetadata(
   return {
     title: project.title,
     description: project.description,
-    metadataBase: new URL(process.env.CMS_API ?? ""),
+    metadataBase: new URL("https://cms.imamsyahid.dev"),
     openGraph: {
       images: [project.headerImage.url, ...previousImages],
     },
