@@ -48,7 +48,7 @@ export async function generateMetadata(
 export default async function Page({ params }: { params: { slug: string } }) {
   const blog = await fetchData(params.slug);
 
-  const base64 = await getBase64(process.env.CMS_API + blog.headerImage.url);
+  const base64 = await getBase64(blog.headerImage.url);
 
   return (
     <div className="w-full flex flex-col gap-10">

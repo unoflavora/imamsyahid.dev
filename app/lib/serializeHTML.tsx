@@ -77,7 +77,7 @@ export const serializeHTML = (children: any[]) =>
         return <li key={i}>{serializeHTML(node.children)}</li>;
       case "upload":
         var { value } = node as { value: MediaData };
-        const base64 = await getBase64(process.env.CMS_API + value.url);
+        const base64 = await getBase64(value.url);
 
         return <ContentImage config={{ base64 }} image={value} />;
       case "link":

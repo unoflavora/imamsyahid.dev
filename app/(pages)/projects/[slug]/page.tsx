@@ -20,7 +20,7 @@ const fetchData = async (slug: string) => {
       ...photo,
       image: {
         ...photo["image"],
-        url: process.env.CMS_API + photo.image.url,
+        url: photo.image.url,
       },
     };
   });
@@ -62,7 +62,7 @@ export default async function Page({ params }: Props) {
     caption: "string",
     image: {
       ...project["headerImage"],
-      url: process.env.CMS_API + project.headerImage.url,
+      url: project.headerImage.url,
     },
   });
 
