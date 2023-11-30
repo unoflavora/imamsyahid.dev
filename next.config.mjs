@@ -30,7 +30,7 @@ const nextConfig = {
     return config;
   },
   images: {
-    domains: ["cms.imamsyahid.dev", "cms_devcontainer-cms-1"],
+    domains: ["cms.imamsyahid.dev", "cmsimamsyahiddev_devcontainer-cms-1"],
   },
   experimental: {
     serverActions: {

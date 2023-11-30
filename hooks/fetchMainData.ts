@@ -36,5 +36,10 @@ export async function fetchMainData() {
       };
     });
 
-  return { projects, writings };
+  return {
+    projectData: projectRes,
+    blogs: writingsRes,
+    projects,
+    writings,
+  };
 }
