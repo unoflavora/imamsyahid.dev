@@ -2,6 +2,7 @@ import { getContent } from "@/app/lib/getContent";
 import ContentData from "@/app/types/ContentData";
 import AnimatedText from "@/components/ui/AnimatedText";
 import { Article } from "@/components/ui/ArticleShowcase";
+import { fetchMainData } from "@/hooks/fetchMainData";
 import { Metadata } from "next";
 import React from "react";
 
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  const data = await getContent("projects");
+  const { projectData } = await fetchMainData();
 
   return (
     <Article>
@@ -20,7 +21,7 @@ export default async function Page() {
       </Article.Header>
 
       <Article.Items
-        articles={data ? data.docs : []}
+        articles={projectData ? projectData.docs : []}
         rootUrl="projects"
         config={{ date: { showYearOnly: true } }}
       />

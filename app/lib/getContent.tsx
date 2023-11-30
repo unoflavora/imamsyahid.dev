@@ -1,10 +1,7 @@
-"use server";
-
 import ContentData from "../types/ContentData";
 
 export async function getContent(slug: string) {
   const url = process.env.CMS_API + `/api/${slug}/`;
-
   try {
     var res = await fetch(url, {
       method: "GET",

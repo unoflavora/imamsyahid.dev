@@ -2,15 +2,16 @@ import config from "@/app/config";
 import { getContent } from "@/app/lib/getContent";
 import AnimatedText from "@/components/ui/AnimatedText";
 import { Article } from "@/components/ui/ArticleShowcase";
+import { fetchMainData } from "@/hooks/fetchMainData";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import React from "react";
 
 export const metadata: Metadata = {
-  title: "Blogs"
-}
+  title: "Blogs",
+};
 export default async function Page() {
-  const data = await getContent("blogs");
+  const { blogs } = await fetchMainData();
 
   return (
     <Article>
@@ -22,7 +23,7 @@ export default async function Page() {
         />
       </Article.Header>
 
-      <Article.Items articles={data ? data.docs : []} rootUrl="blogs" />
+      <Article.Items articles={blogs ? blogs.docs : []} rootUrl="blogs" />
     </Article>
   );
 }
