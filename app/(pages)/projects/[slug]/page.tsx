@@ -40,18 +40,13 @@ export async function generateMetadata(
   return {
     title: project.title,
     description: project.description,
+    metadataBase: new URL(process.env.CMS_API ?? ""),
     openGraph: {
-      images: [
-        process.env.CMS_API + project.headerImage.url,
-        ...previousImages,
-      ],
+      images: [project.headerImage.url, ...previousImages],
     },
     twitter: {
       card: "summary_large_image",
-      images: [
-        process.env.CMS_API + project.headerImage.url,
-        ...previousImages,
-      ],
+      images: [project.headerImage.url, ...previousImages],
     },
   };
 }

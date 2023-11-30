@@ -33,8 +33,13 @@ export async function generateMetadata(
   return {
     title: blog.title,
     description: blog.description,
+    metadataBase: new URL(process.env.CMS_API ?? ""),
     openGraph: {
-      images: [process.env.CMS_API + blog.headerImage.url, ...previousImages],
+      images: [blog.headerImage.url, ...previousImages],
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: [blog.headerImage.url, ...previousImages],
     },
   };
 }
