@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  const data: ContentData | null = await getContent("projects");
+  const data = await getContent("projects");
 
   return (
     <Article>

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Navbar from "./layout/Navbar";
 import Script from "next/script";
+import { headers } from "next/headers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
     template: "%s | Imam Syahid - Fullstack Engineer",
   },
   description: "Imam Syahid Hudzaifah's Personal Portofolio Page",
+  metadataBase: new URL(process.env.CMS_API ?? ""),
   openGraph: {
     url: "https://www.imamsyahid.dev",
     type: "website",
@@ -28,6 +30,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const headersList = headers();
+  const path = headersList.get("next-url") || "/";
+
   return (
     <html id="html" className="dark" lang="en">
       <head>
@@ -55,7 +60,7 @@ export default function RootLayout({
               © 2023 Imam Syahid Hudzaifah
             </p>
 
-            <Navbar />
+            <Navbar currentPath={path} />
           </div>
         </div>
       </body>

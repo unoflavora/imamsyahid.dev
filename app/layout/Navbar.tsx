@@ -1,52 +1,44 @@
 "use client";
-
-import React, { useEffect, useState } from "react";
 import Icons from "@/public/nav";
 import Link from "next/link";
+import { headers } from "next/headers";
+import SetLight from "./setLights";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { MoonIcon, SunIcon } from "lucide-react";
-
 const pages = ["home", "blogs", "projects", "stack", "contact"];
 
-export default function Navbar() {
-  const [selected, setSelected] = useState(pages[0]);
-  const [darkMode, enableDarkMode] = useState<boolean>(true);
-  const pathName = usePathname();
+export default function Navbar({ currentPath }: { currentPath: string }) {
+  const pathname = usePathname();
+
+  const [selectedPage, setSelectedPage] = useState(pathname);
 
   useEffect(() => {
-    var path = pathName.split("/")[1];
+    if (pathname == null) setSelectedPage(currentPath);
+    var path = pathname.split("/")[1];
 
-    if (path === "") setSelected("home");
-    else setSelected(path);
-  }, [pathName]);
-
-  useEffect(() => {
-    var html = document.getElementById("html");
-    console.log(html?.classList, darkMode);
-    if (darkMode) {
-      html?.classList.add("dark");
-    } else {
-      html?.classList.remove("dark");
-    }
-  }, [darkMode]);
+    if (path === "") setSelectedPage("home");
+    else setSelectedPage(path);
+  }, [currentPath, pathname]);
 
   return (
     <div className="fixed bottom-4 w-full md:max-w-[24rem] px-3 py-2 md:px-0 md:bottom-4 ">
       <div className="flex justify-between gap-4 bg-white dark:bg-[#2F2F2F] backdrop-blur-xl rounded-full shadow-2xl py-2 px-4">
         {pages.map((page, i) => {
           let Icon = (Icons as any)[page];
+
           return (
             <Link
               href={page === "home" ? "/" : `/${page}`}
-              onClick={() => setSelected(page)}
               key={"item-icon " + page}
               className={`p-1.5 w-10 h-fit  flex justify-center items-center ${
-                selected === page ? "bg-black/80 dark:bg-[#D6D6D6]" : "bg-none"
+                selectedPage == page
+                  ? "bg-black/80 dark:bg-[#D6D6D6]"
+                  : "bg-none"
               }  rounded-full group`}
             >
               <div
                 className={`w-7 h-7 flex justify-center items-center ${
-                  selected === page
+                  selectedPage == page
                     ? "fill-white dark:fill-black"
                     : "fill-[rgb(136,136,136)]"
                 }`}
@@ -59,14 +51,7 @@ export default function Navbar() {
             </Link>
           );
         })}
-        <button
-          onClick={() => {
-            enableDarkMode(!darkMode);
-          }}
-          className="flex justify-center items-center"
-        >
-          {darkMode ? <SunIcon className="fill-white" /> : <MoonIcon />}
-        </button>
+        <SetLight />
       </div>
     </div>
   );
