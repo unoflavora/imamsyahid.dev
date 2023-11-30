@@ -1,4 +1,5 @@
 "use client";
+
 import { ProjectDoc } from "@/app/types/ContentData";
 import ContentImage from "@/components/ui/ContentImage";
 import { cn } from "@/lib/utils";
@@ -33,7 +34,7 @@ export default function PhotoGallery({
         {photos.map((photo) => {
           return (
             <ContentImage
-              renderOnClient
+              config={{ renderOnClient: true }}
               key={photo.title}
               image={photo.image}
               className="h-[20rem] md:h-[30rem] lg:h-[32rem]"

@@ -4,6 +4,7 @@ import React from "react";
 import { Doc } from "@/app/types/ContentData";
 import MediaData from "@/app/types/MediaData";
 import ContentImage from "./ContentImage";
+import getBase64 from "@/app/lib/getBase64";
 
 type ArticleProp = {
   rootUrl: string;
@@ -31,6 +32,8 @@ const ArticleCard = React.forwardRef<
     throw new Error(data.errors.message);
   }
 
+  const base64 = await getBase64(process.env.CMS_API + article.headerImage.url);
+
   return (
     <Link
       className="hover:scale-105 transition-transform group"
@@ -51,7 +54,11 @@ const ArticleCard = React.forwardRef<
           )}
         </p>
 
-        <ContentImage image={article.headerImage} className={props.className} />
+        <ContentImage
+          config={{ base64 }}
+          image={article.headerImage}
+          className={props.className}
+        />
 
         <h1 className="text-argent text-lg">
           <AnimatedText text={article.title} />

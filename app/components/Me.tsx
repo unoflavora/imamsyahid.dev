@@ -11,7 +11,6 @@ export default function Me() {
       <div className="flex gap-3 animate-component-in-up ">
         <div className="relative w-12 aspect-square overflow-hidden rounded-full">
           <Image
-            placeholder="blur"
             className="w-full h-full object-cover object-center"
             src={"/me.jpeg"}
             sizes="100%"

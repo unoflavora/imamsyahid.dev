@@ -25,7 +25,6 @@ export default function Stacks() {
             className={`relative flex gap-3 p-1 w-10 h-10 justify-center items-center rounded-full ${l.bgColor}  group/item`}
           >
             <Image
-              placeholder="blur"
               className="w-full "
               src={l.imghref}
               height={25}

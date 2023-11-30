@@ -1,4 +1,5 @@
 import config from "@/app/config";
+import getBase64 from "@/app/lib/getBase64";
 import { getContent } from "@/app/lib/getContent";
 import { serializeHTML } from "@/app/lib/serializeHTML";
 import { ProjectDoc } from "@/app/types/ContentData";
@@ -47,6 +48,8 @@ export async function generateMetadata(
 export default async function Page({ params }: { params: { slug: string } }) {
   const blog = await fetchData(params.slug);
 
+  const base64 = await getBase64(process.env.CMS_API + blog.headerImage.url);
+
   return (
     <div className="w-full flex flex-col gap-10">
       <header className="flex flex-col gap-4 py-4 animate-component-in-up">
@@ -64,7 +67,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           "animate-jumpIn"
         )}
       >
-        <ContentImage image={blog.headerImage} />
+        <ContentImage config={{ base64 }} image={blog.headerImage} />
       </div>
 
       <div className="animate-component-in-bottom flex flex-col gap-3 text-argent">
