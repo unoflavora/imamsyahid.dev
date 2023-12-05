@@ -1,8 +1,9 @@
-FROM node:18-alpine as builder
+FROM node:18-bookworm-slim as builder
+RUN apt-get -y update; apt-get -y install curl; apt-get -y install unzip
 
 #aws
-RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-RUN	unzip awscliv2.zip && ./aws/install
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip
+RUN ./aws/install && aws --version
 RUN aws configure set default.region $aws_region
 RUN aws configure set aws_access_key_id $aws_access_key_id
 RUN aws configure set aws_secret_access_key $aws_secret_access_key
