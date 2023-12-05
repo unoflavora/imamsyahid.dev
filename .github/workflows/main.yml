@@ -30,14 +30,16 @@ jobs:
         env:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           CMS_API: ${{ secrets.CMS_API }}
-          aws_region: ${{secrets.AWS_REGION}}
-          aws_access_key_id: ${{secrets.AWS_ACCESS_KEY}}
-          aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
-          aws_bucket: ${{secrets.AWS_BUCKET}}
         with:
           context: .
           push: true
           tags: imamsyahid/dev:latest
+          secrets: |
+            "aws_region=${{secrets.AWS_REGION}}"
+            "aws_access_key_id=${{secrets.AWS_ACCESS_KEY}}"
+            "aws_secret_access_key=${{secrets.AWS_SECRET_ACCESS_KEY}}"
+            "aws_bucket=${{secrets.AWS_BUCKET}}"
+
   deployment:
     name: Deploy to https:server.imamsyahid.dev
     needs: build-image
