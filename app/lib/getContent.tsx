@@ -8,6 +8,7 @@ export async function getContent(slug: string) {
       headers: {
         "Content-Type": "application/json",
       },
+      cache: 'force-cache',
       next: {
         tags: [slug],
       },
