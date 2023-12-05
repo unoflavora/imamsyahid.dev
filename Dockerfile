@@ -1,4 +1,14 @@
 FROM node:18-alpine as builder
+
+#aws
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+RUN	unzip awscliv2.zip && ./aws/install
+RUN aws configure set default.region $aws_region
+RUN aws configure set aws_access_key_id $aws_access_key_id
+RUN aws configure set aws_secret_access_key $aws_secret_access_key
+RUN aws configure set default.output json
+
+#build
 WORKDIR /app
 COPY ["package.json", "package-lock.json*", "./"]
 RUN npm install
@@ -6,6 +16,9 @@ COPY . .
 ENV CMS_API=https://cms.imamsyahid.dev
 RUN npm run build
 RUN npm run sitemap
+
+#cdn
+RUN aws s3 cp /app/.next s3://${aws_bucket}/app/_next --recursive
 
 FROM node:18-alpine as runtime
 WORKDIR /app
