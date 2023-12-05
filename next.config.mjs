@@ -2,6 +2,11 @@ import withPlaiceholder from "@plaiceholder/next";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  assetPrefix:
+    process.env.NODE_ENV === "production"
+      ? "https://bucket-imamsyahid-dev-static.s3.ap-southeast-1.amazonaws.com/app"
+      : undefined,
+  crossOrigin: "anonymous",
   webpack(config) {
     // Grab the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find((rule) =>
@@ -33,7 +38,7 @@ const nextConfig = {
     domains: [
       "cms.imamsyahid.dev",
       "cdn.imamsyahid.dev",
-      "bucket-imamsyahid-dev.s3.ap-southeast-1.amazonaws.com",
+      "imamsyahid-dev.s3.ap-southeast-1.amazonaws.com",
     ],
   },
   experimental: {
