@@ -1,7 +1,7 @@
 import config from "@/app/config";
 import AnimatedText from "./AnimatedText";
 import ArticleCard, { ArticleCardConfig } from "./ArticleCard";
-import React, { ReactNode } from "react";
+import React, { ReactNode, Suspense } from "react";
 import { cn } from "@/lib/utils";
 import { Doc } from "@/app/types/ContentData";
 
@@ -16,7 +16,10 @@ Article.Header = function ArticleHeader(
     React.HTMLAttributes<HTMLDivElement>
 ) {
   return (
-    <div className={cn("flex flex-col animate-component-in-up")}>
+    <div
+      className={cn("flex flex-col animate-component-in-up")}
+      suppressHydrationWarning
+    >
       <h1 className="text-argent">{props.title}</h1>
       <header
         className={cn(
@@ -61,7 +64,7 @@ Article.Items = function ArticleItems(
           rootUrl={props.rootUrl}
           className="md:h-96"
           article={props.articles[0]}
-          config={props.config && { ...props.config }}
+          config={{ ...props.config, mainArticle: true }}
         />
         <div className="flex flex-col md:grid md:grid-cols-2 gap-8 ">
           {props.articles.length > 1 &&

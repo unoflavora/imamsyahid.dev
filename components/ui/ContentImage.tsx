@@ -11,7 +11,7 @@ export default function ContentImage(
       renderOnClient?: boolean;
       base64?: string;
     };
-  } & React.HTMLAttributes<HTMLImageElement>
+  } & React.HTMLAttributes<HTMLOrSVGImageElement> & { priority?: boolean }
 ) {
   const { image, config } = props;
 
@@ -21,6 +21,7 @@ export default function ContentImage(
 
   return (
     <Image
+      {...props}
       placeholder={config.renderOnClient ? "empty" : "blur"}
       blurDataURL={config.base64}
       src={src}

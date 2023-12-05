@@ -6,9 +6,9 @@ import Projects from "./projects.svg";
 import Stack from "./stack.svg";
 
 export default {
+  home: Home,
   blogs: Blog,
   contact: Contact,
-  home: Home,
   products: Products,
   projects: Projects,
   stack: Stack,

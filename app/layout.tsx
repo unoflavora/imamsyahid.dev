@@ -2,7 +2,6 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Navbar from "./layout/Navbar";
-import { headers } from "next/headers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,9 +28,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const headersList = headers();
-  const path = headersList.get("next-url") || "/";
-
   return (
     <html id="html" className="dark" lang="en">
       <head>
@@ -47,7 +43,7 @@ export default function RootLayout({
               © 2023 Imam Syahid Hudzaifah
             </p>
 
-            <Navbar currentPath={path} />
+            <Navbar />
           </div>
         </div>
       </body>
