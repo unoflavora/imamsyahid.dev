@@ -39,22 +39,9 @@ jobs:
             "aws_access_key_id=${{secrets.AWS_ACCESS_KEY}}"
             "aws_secret_access_key=${{secrets.AWS_SECRET_ACCESS_KEY}}"
             "aws_bucket=${{secrets.AWS_BUCKET}}"
-  publish:
-    name: Revalidate CDN
-    needs: build-image
-    runs-on: ubuntu-latest
-    steps:
-      - name: Revalidating CDN
-        uses: chetan/invalidate-cloudfront-action@v2
-        env:
-          DISTRIBUTION: ${{ secrets.AWS_DISTRIBUTION }}
-          PATHS: "/app"
-          AWS_REGION: ${{secrets.AWS_REGION}}
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   deployment:
     name: Deploy to imamsyahid.dev
-    needs: publish
+    needs: build-image
     runs-on: ubuntu-latest
     environment:
       name: Production

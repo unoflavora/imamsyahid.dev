@@ -22,6 +22,7 @@ RUN --mount=type=secret,id=aws_secret_access_key \
     aws configure set aws_secret_access_key "$(cat /run/secrets/aws_secret_access_key)"
 RUN aws configure set default.output json
 RUN --mount=type=secret,id=aws_bucket \
+    aws s3 rm s3://bucket-imamsyahid-dev/app --recursive \
     aws s3 cp /app/.next/static s3://"$(cat /run/secrets/aws_bucket)"/app/_next/static --recursive --acl public-read
 
 FROM node:18-alpine as runtime

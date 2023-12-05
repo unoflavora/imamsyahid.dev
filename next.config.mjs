@@ -4,7 +4,7 @@ import withPlaiceholder from "@plaiceholder/next";
 const nextConfig = {
   assetPrefix:
     process.env.NODE_ENV === "production"
-      ? "https://bucket-imamsyahid-dev.s3.ap-southeast-1.amazonaws.com"
+      ? "https://cdn.imamsyahid.dev/app"
       : undefined,
   webpack(config) {
     // Grab the existing rule that handles SVG imports
