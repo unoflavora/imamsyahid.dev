@@ -15,18 +15,18 @@ RUN npm run sitemap
 
 #cdn
 RUN --mount=type=secret,id=aws_region \
-    aws configure set default.region "${/run/secrets/aws_region}"
+    aws configure set default.region "$(cat /run/secrets/aws_region)"
 
 RUN --mount=type=secret,id=aws_access_key_id \
-    aws configure set default.region "${/run/secrets/aws_access_key_id}"
+    aws configure set aws_access_key_id "$(cat /run/secrets/aws_access_key_id)"
 
 RUN --mount=type=secret,id=aws_secret_access_key \
-    aws configure set default.region "${/run/secrets/aws_secret_access_key}"
+    aws configure set aws_secret_access_key "$(cat /run/secrets/aws_secret_access_key)"
 
 RUN aws configure set default.output json
 
 RUN --mount=type=secret,id=aws_bucket \
-    aws s3 cp /app/.next s3://"${/run/secrets/aws_bucket}"/app/_next --recursive
+    aws s3 cp /app/.next s3://"$(cat /run/secrets/aws_bucket)"/app/_next --recursive
 
 FROM node:18-alpine as runtime
 WORKDIR /app
