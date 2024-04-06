@@ -57,18 +57,22 @@ type ItemsProp = {
 Article.Items = function ArticleItems(
   props: React.PropsWithChildren<ItemsProp>
 ) {
+
   if (props.articles.length > 0)
+    {
+    let articles = [...props.articles].sort((a,b) => a.order - b.order);
+    
     return (
       <ul className="flex flex-col gap-8 animate-component-in-bottom">
         <ArticleCard
           rootUrl={props.rootUrl}
           className="md:h-96"
-          article={props.articles[0]}
+          article={articles[0]}
           config={{ ...props.config, mainArticle: true }}
         />
         <div className="flex flex-col md:grid md:grid-cols-2 gap-8 ">
-          {props.articles.length > 1 &&
-            props.articles.map((blog, i) => {
+          {articles.length > 1 &&
+            articles.map((blog, i) => {
               if (i > 0)
                 return (
                   <ArticleCard
@@ -83,6 +87,8 @@ Article.Items = function ArticleItems(
         </div>
       </ul>
     );
+    }
+
 };
 
 export { Article };

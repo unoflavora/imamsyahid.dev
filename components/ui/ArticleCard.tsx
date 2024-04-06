@@ -33,11 +33,7 @@ export default async function ArticleCard(
           {config != null && (
             <AnimatedText
               className="text-sm"
-              text={
-                config.date?.showYearOnly
-                  ? new Date(article.createdAt).getFullYear().toString()
-                  : new Date(article.createdAt).toLocaleDateString("id-ID")
-              }
+              text = { article.year }
             />
           )}
         </p>

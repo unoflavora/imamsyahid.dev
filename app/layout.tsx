@@ -40,7 +40,7 @@ export default function RootLayout({
           <div className="w-full py-6 pb-28 px-5 md:px-0 gap-10 relative md:max-w-xl flex flex-col items-center  ">
             {children}
             <p className="text-sm text-argent self-start">
-              © 2023 Imam Syahid Hudzaifah
+              © 2024 Imam Syahid Hudzaifah
             </p>
 
             <Navbar />

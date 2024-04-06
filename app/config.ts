@@ -8,6 +8,20 @@ const config = {
       category: "React Framework",
     },
     {
+      imghref: "/icons8-angular.svg",
+      name: "Angular",
+      href: "https://angular.dev//",
+      bgColor: "bg-white",
+      category: "SPA Web Development",
+    },
+    {
+      imghref: "/icons-go.svg",
+      name: "Gin",
+      href: "https://gin-gonic.com/",
+      bgColor: "bg-white",
+      category: "Web Framework for Go",
+    },
+    {
       imghref: "/icons8-express.svg",
       name: "Express",
       href: "https://expressjs.com/",
@@ -118,14 +132,14 @@ const config = {
     {
       title: "LinkedIn",
       subtitle: "Follow",
-      href: "https://www.linkedin.com/in/imamsyahidh/"
+      href: "https://www.linkedin.com/in/imamsyahidh/",
     },
     {
       title: "Instagram",
       subtitle: "Follow",
       href: "https://www.instagram.com/imamsyahid_/",
     },
-  ]
+  ],
 };
 
 export default config;

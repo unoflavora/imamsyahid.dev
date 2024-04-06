@@ -24,6 +24,8 @@ export interface Doc {
   slug: string;
   category: string;
   projectUrl: string;
+  order: number,
+  year: string;
 }
 
 export interface ProjectDoc extends Doc {
