@@ -1,13 +1,9 @@
-import config from "@/app/config";
-import AnimatedText from "./AnimatedText";
 import ArticleCard, { ArticleCardConfig } from "./ArticleCard";
-import React, { ReactNode, Suspense } from "react";
+import React, { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { Doc } from "@/app/types/ContentData";
 
 function Article({ children }: { children: ReactNode }) {
-  const blogs = config.dummyData.blogs;
-
   return <div className="w-full flex flex-col">{children}</div>;
 }
 
@@ -58,10 +54,9 @@ Article.Items = function ArticleItems(
   props: React.PropsWithChildren<ItemsProp>
 ) {
 
-  if (props.articles.length > 0)
-    {
-    let articles = [...props.articles].sort((a,b) => a.order - b.order);
-    
+  if (props.articles.length > 0) {
+    let articles = [...props.articles].sort((a, b) => a.order - b.order);
+
     return (
       <ul className="flex flex-col gap-8 animate-component-in-bottom">
         <ArticleCard
@@ -87,7 +82,7 @@ Article.Items = function ArticleItems(
         </div>
       </ul>
     );
-    }
+  }
 
 };
 

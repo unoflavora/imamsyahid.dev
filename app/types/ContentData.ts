@@ -26,6 +26,7 @@ export interface Doc {
   projectUrl: string;
   order: number,
   year: string;
+  _status: "published" | "draft";
 }
 
 export interface ProjectDoc extends Doc {

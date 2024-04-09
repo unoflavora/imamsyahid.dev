@@ -17,7 +17,9 @@ export async function fetchMainData() {
     href: string;
   }[] = [];
 
-  if (projectRes != null && projectRes.docs != null)
+  if (projectRes != null && projectRes.docs != null) {
+    projectRes.docs = projectRes.docs.filter(doc => doc._status === "published");
+
     projects = projectRes.docs.map((doc) => {
       return {
         title: doc.title,
@@ -26,8 +28,11 @@ export async function fetchMainData() {
         href: `/projects/${doc.slug}`,
       };
     });
+  }
 
-  if (writingsRes != null && writingsRes.docs != null)
+  if (writingsRes != null && writingsRes.docs != null) {
+    writingsRes.docs = writingsRes.docs.filter(doc => doc._status === 'published');
+
     writings = writingsRes.docs.map((doc) => {
       return {
         title: doc.title,
@@ -36,6 +41,7 @@ export async function fetchMainData() {
       };
     });
 
+  }
   return {
     projectData: projectRes,
     blogs: writingsRes,
