@@ -1,5 +1,3 @@
-import { getContent } from "@/app/lib/getContent";
-import ContentData from "@/app/types/ContentData";
 import AnimatedText from "@/components/ui/AnimatedText";
 import { Article } from "@/components/ui/ArticleShowcase";
 import { fetchMainData } from "@/hooks/fetchMainData";
