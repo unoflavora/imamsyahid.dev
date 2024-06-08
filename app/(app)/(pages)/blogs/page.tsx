@@ -1,10 +1,7 @@
-import config from "@/app/config";
-import { getContent } from "@/app/lib/getContent";
 import AnimatedText from "@/components/ui/AnimatedText";
 import { Article } from "@/components/ui/ArticleShowcase";
 import { fetchMainData } from "@/hooks/fetchMainData";
 import { Metadata } from "next";
-import { notFound } from "next/navigation";
 import React from "react";
 
 export const metadata: Metadata = {

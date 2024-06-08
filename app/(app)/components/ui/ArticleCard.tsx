@@ -1,9 +1,8 @@
 import Link from "next/link";
 import AnimatedText from "./AnimatedText";
 import React, { HTMLAttributes } from "react";
-import { Doc } from "@/app/types/ContentData";
 import ContentImage from "./ContentImage";
-
+import { Doc } from "@/types/ContentData";
 type ArticleProp = {
   rootUrl: string;
   article: Doc;
@@ -18,7 +17,7 @@ export type ArticleCardConfig = {
 };
 
 export default async function ArticleCard(
-  props: ArticleProp & ArticleCardConfig & HTMLAttributes<HTMLDivElement>
+  props: ArticleProp & ArticleCardConfig & HTMLAttributes<HTMLDivElement>,
 ) {
   const { article, config } = props;
 
@@ -31,10 +30,7 @@ export default async function ArticleCard(
       <li className="flex flex-col gap-2 text-argent">
         <p className="w-full inline-flex justify-between text-sm">
           {config != null && (
-            <AnimatedText
-              className="text-sm"
-              text = { article.year }
-            />
+            <AnimatedText className="text-sm" text={article.year} />
           )}
         </p>
 

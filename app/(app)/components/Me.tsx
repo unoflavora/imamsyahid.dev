@@ -1,8 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import useTextAnimator from "../../hooks/useTextAnimator";
-
+import useTextAnimator from "../hooks/useTextAnimator";
 export default function Me() {
   const name = useTextAnimator("Imam Syahid Hudzaifah");
 

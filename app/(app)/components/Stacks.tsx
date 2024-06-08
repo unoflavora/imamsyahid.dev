@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import useTextAnimator from "../../hooks/useTextAnimator";
+import useTextAnimator from "../hooks/useTextAnimator";
 import Link from "next/link";
 import config from "../config";
 

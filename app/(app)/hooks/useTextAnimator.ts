@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 
 export default function useTextAnimator(text: string) {
-  if (text == null) return;
-
-  const [currentText, setCurrentText] = useState(text);
+  const [currentText, setCurrentText] = useState(text ?? "");
 
   const randomIndexPicker = (indexer: string[] | string) =>
     Math.floor(Math.random() * indexer.length);

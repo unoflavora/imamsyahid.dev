@@ -1,5 +1,5 @@
 "use client";
-import Icons from "@/public/nav";
+import Icons from "../../../public/nav";
 import Link from "next/link";
 import SetLight from "./setLights";
 import { usePathname } from "next/navigation";

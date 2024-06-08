@@ -1,6 +1,5 @@
 "use client";
-
-import { ProjectDoc } from "@/app/types/ContentData";
+import { ProjectDoc } from "@/types/ContentData";
 import ContentImage from "@/components/ui/ContentImage";
 import { cn } from "@/lib/utils";
 import Slider, { Settings } from "react-slick";
@@ -27,7 +26,7 @@ export default function PhotoGallery({
     <div
       className={cn(
         "w-full md:w-[120%] lg:w-[150%] overflow-visible flex flex-col gap-3",
-        "animate-jumpIn"
+        "animate-jumpIn",
       )}
     >
       <Slider ref={slider} className="w-full bg-red-200" {...settings}>

@@ -1,13 +1,11 @@
-import { getContent } from "@/app/lib/getContent";
-import { serializeHTML } from "@/app/lib/serializeHTML";
-import { ProjectDoc } from "@/app/types/ContentData";
 import { notFound } from "next/navigation";
 import PhotoGallery from "../components/clientSlider";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
 import { Metadata, ResolvingMetadata } from "next";
-import Props from "@/app/types/Props";
-
+import Props from "@/types/Props";
+import { getContent, serializeHTML } from "@/lib";
+import { ProjectDoc } from "@/types/ContentData";
 const fetchData = async (slug: string) => {
   const data = await getContent("projects");
   if (data == null) return notFound();
@@ -30,7 +28,7 @@ const fetchData = async (slug: string) => {
 
 export async function generateMetadata(
   { params }: Props,
-  parent: ResolvingMetadata
+  parent: ResolvingMetadata,
 ): Promise<Metadata> {
   const { project } = await fetchData(params.slug);
 

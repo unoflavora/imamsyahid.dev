@@ -1,4 +1,3 @@
-import config from "@/app/config";
 import { ArrowLeftCircleIcon } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -14,10 +13,10 @@ export default function Layout({
   return (
     <div className="w-full flex flex-col items-start gap-10 ">
       <Link
-        href="/blogs"
+        href="/projects"
         className="text-argent flex items-center gap-2 hover:text-black dark:hover:text-white transition-colors animate-component-in-up  "
       >
-        <ArrowLeftCircleIcon /> Blog
+        <ArrowLeftCircleIcon /> Projects
       </Link>
 
       {children}

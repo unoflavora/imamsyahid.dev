@@ -1,14 +1,9 @@
-import config from "@/app/config";
-import getBase64 from "@/app/lib/getBase64";
-import { getContent } from "@/app/lib/getContent";
-import { serializeHTML } from "@/app/lib/serializeHTML";
-import { ProjectDoc } from "@/app/types/ContentData";
-import MediaData from "@/app/types/MediaData";
-import Props from "@/app/types/Props";
+import { getBase64, serializeHTML, getContent } from "@/lib";
+import { ProjectDoc } from "@/types/ContentData";
+import Props from "@/types/Props";
 import ContentImage from "@/components/ui/ContentImage";
 import { cn } from "@/lib/utils";
 import { Metadata, ResolvingMetadata } from "next";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 
 const fetchData = async (slug: string) => {
@@ -24,7 +19,7 @@ const fetchData = async (slug: string) => {
 
 export async function generateMetadata(
   { params }: Props,
-  parent: ResolvingMetadata
+  parent: ResolvingMetadata,
 ): Promise<Metadata> {
   const blog = await fetchData(params.slug);
 
@@ -64,7 +59,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       <div
         className={cn(
           "min-h-[18rem] min-w-full  -ml-5 -mr-5 md:m-0",
-          "animate-jumpIn"
+          "animate-jumpIn",
         )}
       >
         <ContentImage config={{ base64 }} image={blog.headerImage} />

@@ -1,15 +1,14 @@
 import ArticleCard, { ArticleCardConfig } from "./ArticleCard";
 import React, { ReactNode } from "react";
 import { cn } from "@/lib/utils";
-import { Doc } from "@/app/types/ContentData";
-
+import { Doc } from "@/types/ContentData";
 function Article({ children }: { children: ReactNode }) {
   return <div className="w-full flex flex-col">{children}</div>;
 }
 
 Article.Header = function ArticleHeader(
   props: React.PropsWithChildren<{ title: string }> &
-    React.HTMLAttributes<HTMLDivElement>
+    React.HTMLAttributes<HTMLDivElement>,
 ) {
   return (
     <div
@@ -20,7 +19,7 @@ Article.Header = function ArticleHeader(
       <header
         className={cn(
           "py-12 text-argent text-2xl inline-flex gap-2",
-          props.className
+          props.className,
         )}
       >
         {props.children}
@@ -30,13 +29,13 @@ Article.Header = function ArticleHeader(
 };
 
 Article.Body = function ArticleBody(
-  props: React.PropsWithChildren & React.HTMLAttributes<HTMLDivElement>
+  props: React.PropsWithChildren & React.HTMLAttributes<HTMLDivElement>,
 ) {
   return (
     <div
       className={cn(
         "flex flex-col animate-component-in-bottom",
-        props.className
+        props.className,
       )}
     >
       {props.children}
@@ -51,9 +50,8 @@ type ItemsProp = {
 };
 
 Article.Items = function ArticleItems(
-  props: React.PropsWithChildren<ItemsProp>
+  props: React.PropsWithChildren<ItemsProp>,
 ) {
-
   if (props.articles.length > 0) {
     let articles = [...props.articles].sort((a, b) => a.order - b.order);
 
@@ -83,7 +81,6 @@ Article.Items = function ArticleItems(
       </ul>
     );
   }
-
 };
 
 export { Article };

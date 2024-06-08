@@ -1,9 +1,7 @@
-import { Doc } from "@/app/types/ContentData";
-import MediaData from "@/app/types/MediaData";
 import { cn } from "@/lib/utils";
+import MediaData from "@/types/MediaData";
 import Image from "next/image";
 import React from "react";
-
 export default function ContentImage(
   props: {
     image: MediaData;
@@ -11,7 +9,7 @@ export default function ContentImage(
       renderOnClient?: boolean;
       base64?: string;
     };
-  } & React.HTMLAttributes<HTMLOrSVGImageElement> & { priority?: boolean }
+  } & React.HTMLAttributes<HTMLOrSVGImageElement> & { priority?: boolean },
 ) {
   const { image, config } = props;
 
@@ -31,7 +29,7 @@ export default function ContentImage(
       alt={`cover image of ${image.filename}`}
       className={cn(
         "w-full h-96 group-hover:brightness-[90%] transition-all object-cover object-left-top",
-        props.className
+        props.className,
       )}
     />
   );

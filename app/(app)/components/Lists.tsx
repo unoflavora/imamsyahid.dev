@@ -2,9 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import useTextAnimator from "../../hooks/useTextAnimator";
-import RightArrow from "@/public/arrow-right.svg";
-
+import RightArrow from "@public/arrow-right.svg";
+import useTextAnimator from "../hooks/useTextAnimator";
 type List = {
   title: string;
   subtitle: string;
@@ -55,7 +54,7 @@ export default function Lists(props: ListsProps) {
                   <h2>{l.subtitle}</h2>
                 </div>
               </Link>
-            )
+            ),
         )}
       </div>
     </div>

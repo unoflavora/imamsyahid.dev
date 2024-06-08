@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import useTextAnimator from "../../hooks/useTextAnimator";
 import RightArrow from "@/public/arrow-right.svg";
 import Product from "@/components/ui/ProductCard";
+import useTextAnimator from "@/hooks/useTextAnimator";
 export default function Products() {
   const title = useTextAnimator("Products");
 

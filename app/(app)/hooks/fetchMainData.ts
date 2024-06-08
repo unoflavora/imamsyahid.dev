@@ -1,5 +1,4 @@
-import { getContent } from "@/app/lib/getContent";
-
+import { getContent } from "@/lib/getContent";
 export async function fetchMainData() {
   const projectRes = await getContent("projects");
   var projects: {
@@ -18,7 +17,9 @@ export async function fetchMainData() {
   }[] = [];
 
   if (projectRes != null && projectRes.docs != null) {
-    projectRes.docs = projectRes.docs.filter(doc => doc._status === "published");
+    projectRes.docs = projectRes.docs.filter(
+      (doc) => doc._status === "published",
+    );
 
     projects = projectRes.docs.map((doc) => {
       return {
@@ -31,7 +32,9 @@ export async function fetchMainData() {
   }
 
   if (writingsRes != null && writingsRes.docs != null) {
-    writingsRes.docs = writingsRes.docs.filter(doc => doc._status === 'published');
+    writingsRes.docs = writingsRes.docs.filter(
+      (doc) => doc._status === "published",
+    );
 
     writings = writingsRes.docs.map((doc) => {
       return {
@@ -40,7 +43,6 @@ export async function fetchMainData() {
         href: `/blogs/${doc.slug}`,
       };
     });
-
   }
   return {
     projectData: projectRes,
