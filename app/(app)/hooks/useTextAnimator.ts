@@ -4,13 +4,15 @@ export default function useTextAnimator(text: string) {
   const [currentText, setCurrentText] = useState(text ?? "");
 
   const randomIndexPicker = (indexer: string[] | string) =>
-    Math.floor(Math.random() * indexer.length);
+    indexer ? Math.floor(Math.random() * indexer.length) : 0;
 
   useEffect(() => {
     var timeouts: NodeJS.Timeout[] = [];
 
     for (let i = 0; i < 15; i++) {
       var timeout = setTimeout(() => {
+        if (text == null) return;
+
         let randomChar = ["*", "_", "@", "^", "#"];
         let replacedIndex = randomIndexPicker(text);
         let randomIndex = randomIndexPicker(randomChar);
@@ -23,6 +25,7 @@ export default function useTextAnimator(text: string) {
         }, 50 * i);
         timeouts.push(timeout);
       }, 50 * i);
+
       timeouts.push(timeout);
     }
 
