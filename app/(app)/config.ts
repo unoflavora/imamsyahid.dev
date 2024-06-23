@@ -16,10 +16,10 @@ const config = {
     },
     {
       imghref: "/icons-go.svg",
-      name: "Gin",
-      href: "https://gin-gonic.com/",
+      name: "Go",
+      href: "https://go.dev/",
       bgColor: "bg-white",
-      category: "Web Framework for Go",
+      category: "Go Language",
     },
     {
       imghref: "/icons8-express.svg",

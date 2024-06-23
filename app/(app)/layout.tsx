@@ -30,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html id="html" className="dark" lang="en">
+    <html id="html" lang="en">
       <head>
         <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon" />
         <link rel="shortcut icon" href="/favicon.ico?v=2" type="image/x-icon" />
@@ -39,7 +39,7 @@ export default function RootLayout({
       <Analytics />
       <body suppressHydrationWarning={true} className={inter.className}>
         <div className="transition-colors flex justify-center text-black dark:text-white min-h-screen  dark:bg-[#1E1E1E]">
-          <div className="w-full py-6 pb-28 px-5 md:px-0 gap-10 relative md:max-w-xl flex flex-col items-center  ">
+          <div className="w-full py-6 pb-28 px-5 md:px-0 gap-10 relative md:max-w-xl lg:max-w-2xl flex flex-col items-center  ">
             {children}
             <p className="text-sm text-argent self-start">
               © 2024 Imam Syahid Hudzaifah

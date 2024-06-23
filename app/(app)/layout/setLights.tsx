@@ -4,7 +4,7 @@ import { MoonIcon, SunIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function SetLight() {
-  const [darkMode, enableDarkMode] = useState<boolean>(true);
+  const [darkMode, enableDarkMode] = useState<boolean>();
 
   useEffect(() => {
     var html = document.getElementById("html");
@@ -14,6 +14,22 @@ export default function SetLight() {
       html?.classList.remove("dark");
     }
   }, [darkMode]);
+
+  useEffect(() => {
+    if (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
+      enableDarkMode(true);
+    }
+
+    return window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", (event) => {
+        const colorScheme = event.matches ? "dark" : "light";
+        enableDarkMode(colorScheme === "dark");
+      });
+  }, []);
 
   return (
     <button

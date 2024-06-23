@@ -42,6 +42,7 @@ export async function generateMetadata(
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const blog = await fetchData(params.slug);
+  console.log(blog);
 
   const base64 = await getBase64(blog.headerImage.url);
 
@@ -65,9 +66,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
         <ContentImage config={{ base64 }} image={blog.headerImage} />
       </div>
 
-      <div className="animate-component-in-bottom flex flex-col gap-3 text-argent">
+      <article className="animate-component-in-bottom flex flex-col gap-3">
         {serializeHTML(blog.content)}
-      </div>
+      </article>
     </div>
   );
 }

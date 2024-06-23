@@ -99,7 +99,7 @@ export default async function Page({ params }: Props) {
 
       <PhotoGallery photos={photos} />
 
-      <div className="text-argent animate-component-in-bottom flex flex-col gap-3">
+      <div className="animate-component-in-bottom flex flex-col gap-3">
         {serializeHTML(project.content)}
       </div>
     </div>

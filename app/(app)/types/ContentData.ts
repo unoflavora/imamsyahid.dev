@@ -24,7 +24,7 @@ export interface Doc {
   slug: string;
   category: string;
   projectUrl: string;
-  order: number,
+  order: number;
   year: string;
   _status: "published" | "draft";
 }
@@ -37,6 +37,7 @@ export interface ProjectDoc extends Doc {
   contribution: string;
   client: string;
 }
+
 export interface Slider {
   _order: number;
   id: string;
@@ -46,10 +47,15 @@ export interface Slider {
 }
 
 export interface Content {
-  children: Children[];
+  children: Content[];
   type?: string;
   value: any;
   relationTo?: string;
+  text?: string;
+  code?: boolean;
+  italic?: boolean;
+  bold?: boolean;
+  url?: string;
 }
 
 export interface Children {
